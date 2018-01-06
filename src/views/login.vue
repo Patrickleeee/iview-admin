@@ -59,6 +59,9 @@ export default {
     methods: {
         handleSubmit () {
             this.$refs.loginForm.validate((valid) => {
+                this.$store.dispatch('GetDealer').then(() => {
+
+                });
                 if (valid) {
                     Cookies.set('user', this.form.userName);
                     Cookies.set('password', this.form.password);

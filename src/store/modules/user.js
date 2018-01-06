@@ -1,4 +1,5 @@
 import Cookies from 'js-cookie';
+import {sendRq, getDealer} from '@/api/login';
 
 const user = {
     state: {},
@@ -19,6 +20,47 @@ const user = {
             if (theme) {
                 localStorage.theme = theme;
             }
+        }
+    },
+    actions: {
+        // 用户名登录
+        // LoginByUsername ({ commit }, userInfo) {
+        //     const username = userInfo.username.trim();
+        //     return new Promise((resolve, reject) => {
+        //         loginByUsername(username, userInfo.password).then(response => {
+        //             const data = response.data;
+        //             setToken(response.data.token);
+        //             commit('SET_TOKEN', data.token);
+        //             resolve();
+        //         }).catch(error => {
+        //             reject(error);
+        //         });
+        //     });
+        // },
+
+        SendRq ({ commit }) {
+            return new Promise((resolve, reject) => {
+                sendRq().then(response => {
+                    // console.log('登录请求结果：'.concat(response.data));
+                    resolve();
+                }).catch(error => {
+                    reject(error);
+                });
+            }
+
+            );
+        },
+
+        GetDealer ({ commit }) {
+            return new Promise((resolve, reject) => {
+                getDealer().then(response => {
+                    console.log('经销商数据：'.concat(response.data.data.datas));
+                    resolve();
+                    return response;
+                }).catch(error => {
+                    reject(error);
+                });
+            });
         }
     }
 };
