@@ -18,7 +18,7 @@
                                 <Col span="16" style="padding-left:6px;">
                                     <Row class-name="made-child-con-middle" type="flex" align="middle">
                                         <div>
-                                            <b class="card-user-infor-name">Admin</b>
+                                            <b class="card-user-infor-name">Homefax</b>
                                             <p>super admin</p>
                                         </div>
                                     </Row>
@@ -27,11 +27,11 @@
                             <div class="line-gray"></div>
                             <Row class="margin-top-8">
                                 <Col span="8"><p class="notwrap">上次登录时间:</p></Col>
-                                <Col span="16" class="padding-left-8">2017.09.12-13:32:20</Col>
+                                <Col span="16" class="padding-left-8">2018.01.08-10:32:20</Col>
                             </Row>
                             <Row class="margin-top-8">
                                 <Col span="8"><p class="notwrap">上次登录地点:</p></Col>
-                                <Col span="16" class="padding-left-8">北京</Col>
+                                <Col span="16" class="padding-left-8">上海</Col>
                             </Row>
                         </Card>
                     </Col>
@@ -204,19 +204,16 @@ export default {
         return {
             toDoList: [
                 {
-                    title: '去iView官网学习完整的iView组件'
+                    title: '供应链需求探讨'
                 },
                 {
-                    title: '去iView官网学习完整的iView组件'
+                    title: '供应链需求确认'
                 },
                 {
-                    title: '去iView官网学习完整的iView组件'
+                    title: '供应链数据可视化开发'
                 },
                 {
-                    title: '去iView官网学习完整的iView组件'
-                },
-                {
-                    title: '去iView官网学习完整的iView组件'
+                    title: '供应链风控开发'
                 }
             ],
             count: {

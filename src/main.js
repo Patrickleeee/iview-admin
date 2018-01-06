@@ -9,6 +9,9 @@ import 'iview/dist/styles/iview.css';
 import VueI18n from 'vue-i18n';
 import util from '@/libs/util';
 import { VirtualScroller } from 'vue-virtual-scroller';
+import echarts from 'echarts';
+
+Vue.prototype.$echarts = echarts;
 
 Vue.use(VueI18n);
 Vue.use(iView);
