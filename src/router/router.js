@@ -68,7 +68,7 @@ export const otherRouter = {
 export const appRouter = [
     {
         path: '/risk-map',
-        icon: 'android-sad',
+        icon: 'ionic',
         title: '深一号',
         name: 'riskmap',
         component: Main,
@@ -78,7 +78,7 @@ export const appRouter = [
     },
     {
         path: '/risk-alarm-management',
-        icon: 'ios-analytics',
+        icon: 'ios-alarm',
         title: '风险预警管理',
         name: 'riskAlarmManagement',
         component: Main,
@@ -88,7 +88,7 @@ export const appRouter = [
     },
     {
         path: '/credit-audit-management',
-        icon: 'ios-grid-view',
+        icon: 'eye',
         title: '信用审核管理',
         name: 'creditAuditManagement',
         component: Main,
@@ -99,7 +99,7 @@ export const appRouter = [
     },
     {
         path: '/monitor-platform',
-        icon: 'android-checkbox',
+        icon: 'monitor',
         title: '监控平台',
         name: 'monitorPlatform',
         component: Main,
@@ -134,7 +134,7 @@ export const appRouter = [
     },
     {
         path: '/system-settings',
-        icon: 'earth',
+        icon: 'settings',
         title: '系统设置',
         name: 'systemSettings',
         component: Main,
