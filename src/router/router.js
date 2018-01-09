@@ -77,6 +77,17 @@ export const appRouter = [
         ]
     },
     {
+        path: '/order-management',
+        icon: 'eye',
+        title: '订单管理',
+        name: 'orderManagement',
+        component: Main,
+        children: [
+            { path: 'orderList', title: '订单列表', name: 'order-list', icon: 'table', component: resolve => { require(['@/views/order/order-list.vue'], resolve); } },
+            { path: 'systemAudit', title: '系统自动审核', name: 'system-audit', icon: 'images', component: resolve => { require(['@/views/tables/table-to-image.vue'], resolve); } }
+        ]
+    },
+    {
         path: '/risk-alarm-management',
         icon: 'ios-alarm',
         title: '风险预警管理',
