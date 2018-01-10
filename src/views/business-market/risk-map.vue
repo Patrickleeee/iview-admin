@@ -14,7 +14,7 @@
 </template>
         
 <script>
-import { getDealer, getMonthAmount, getCityData } from '@/api/login';
+import { getDealer, getMonthAmount, getCityData } from '@/api/request';
 import setMapOption from './data/map';
 import pie from './data/pie';
 import bar from './data/bar';

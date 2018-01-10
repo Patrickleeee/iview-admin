@@ -21,7 +21,7 @@
         <Table :data="tableData1" :columns="tableColumns1" stripe></Table>
         <div style="margin: 10px;overflow: hidden">
             <div style="float: right;">
-                <Page :total="100" :current="1" @on-change="changePage"></Page>
+                <Page :total="total" :current="1" @on-change="changePage"></Page>
             </div>
         </div>
     </div>
@@ -46,7 +46,9 @@
                         { type: 'array', trigger: 'blur' }
                     ]
                 },
+                // 每行数据
                 tableData1: this.mockTableData1(),
+                // 列名
                 tableColumns1: [
                     {
                         title: 'Name',
@@ -136,7 +138,9 @@
                             return h('div', this.formatDate(this.tableData1[params.index].update));
                         }
                     }
-                ]
+                ],
+                total: 1000,
+                current: 1
             };
         },
         methods: {
@@ -176,7 +180,8 @@
                 return y + '-' + m + '-' + d;
             },
             // 分页
-            changePage () {
+            changePage (current) {
+                console.log(current);
                 // The simulated data is changed directly here, and the actual usage scenario should fetch the data from the server
                 this.tableData1 = this.mockTableData1();
             },

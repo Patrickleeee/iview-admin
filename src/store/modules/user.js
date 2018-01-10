@@ -1,5 +1,5 @@
 import Cookies from 'js-cookie';
-import {sendRq, getDealer} from '@/api/login';
+import {sendRq, getDealer} from '@/api/request';
 
 const user = {
     state: {},
