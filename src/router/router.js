@@ -94,7 +94,7 @@ export const appRouter = [
         name: 'riskAlarmManagement',
         component: Main,
         children: [
-            { path: 'pie', title: '饼状图', name: 'pie', icon: 'ios-pie', component: resolve => { require(['@/views/access/access.vue'], resolve); } }
+            { path: 'pie', title: '风险预警', name: 'pie', icon: 'ios-pie', component: resolve => { require(['@/views/test-component/card.vue'], resolve); } }
         ]
     },
     {
