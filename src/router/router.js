@@ -97,6 +97,7 @@ export const appRouter = [
             { path: 'pie', title: '风险预警', name: 'pie', icon: 'ios-pie', component: resolve => { require(['@/views/test-component/card.vue'], resolve); } }
         ]
     },
+
     {
         path: '/credit-audit-management',
         icon: 'eye',

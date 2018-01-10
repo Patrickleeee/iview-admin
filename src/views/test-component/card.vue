@@ -16,6 +16,7 @@
                     <Icon type="ios-star" v-if="item.rate >= 9.5"></Icon>
                     <Icon type="ios-star-half" v-else></Icon>
                     {{ item.rate }}
+                    
                     <!-- <Rate show-text allow-half :value="item.rate">
                         <span style="color: #f5a623">{{ item.rate }}</span>
                     </Rate> -->

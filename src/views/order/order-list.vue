@@ -224,7 +224,6 @@
             },
             // 分页
             changePage (current) {
-                console.log(current);
                 // The simulated data is changed directly here, and the actual usage scenario should fetch the data from the server
                 this.tableData1 = this.mockTableData1();
             },
