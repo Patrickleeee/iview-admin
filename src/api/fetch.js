@@ -1,32 +1,51 @@
 import axios from 'axios';
-import store from '@/store';
+// import store from '@/store';
+import Cookies from 'js-cookie';
 
+const BASE_URL = 'http://192.168.0.88:8088';
+const LOGIN_URL = '/login';
 // 创建axios实例
 const service = axios.create({
-    baseURL: 'http://139.224.146.23:8088', // api的base_url
+    baseURL: BASE_URL, // api的base_url
+    // baseURL: 'http://139.224.146.23:8088', // api的base_url
     timeout: 5000 // 请求超时时间
 });
 
 // request拦截器
 service.interceptors.request.use(config => {
     // Do something before request is sent
-    if (store.getters.token) {
-    // config.headers['X-Token'] = getToken() // 让每个请求携带token--['X-Token']为自定义key 请根据实际情况自行修改
+    const url = config.url;
+    const authorization = Cookies.get('Authorization');
+    console.log(authorization);
+    // 非登录页面，添加请求头
+    if (url !== LOGIN_URL) {
+        service.defaults.headers.common['Authorization'] = authorization;
     }
+    service.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
     return config;
 }, error => {
-    logFunction()(error); // for debug
+    console.log(error); // for debug
     Promise.reject(error);
 });
 
 // respone拦截器
-service.interceptors.response.use(
-    response => response,
+service.interceptors.response.use(response => {
+    // 登录时，异常处理
+    if (response.config.url === BASE_URL.concat(LOGIN_URL)) {
+        let accessToken = response.data.access_token;
+        if (accessToken == null) {
+            alert('用户名密码错误');
+            response.status = 5000;
+            return response;
+        }
+    }
+    return response;
+},
     /**
-  * 下面的注释为通过response自定义code来标示请求状态，当code返回如下情况为权限有问题，登出并返回到登录页
-  * 如通过xmlhttprequest 状态码标识 逻辑可写在下面error中
-  */
-    //  const res = response.data;
+     * 下面的注释为通过response自定义code来标示请求状态，当code返回如下情况为权限有问题，登出并返回到登录页
+     * 如通过xmlhttprequest 状态码标识 逻辑可写在下面error中
+     */
+    //  let res1 = response.data;
     //     if (res.code !== 20000) {
     //       Message({
     //         message: res.message,
@@ -49,17 +68,10 @@ service.interceptors.response.use(
     //     } else {
     //       return response.data;
     //     }
-    error => {
-        logFunction()('err' + error);// for debug
-        this.$Message.error('This is an error tip');
-        return Promise.reject(error);
-    }
-);
-
-function logFunction () {
-    return;
-    // Do something with request error
-    console.log;
+error => {
+    console.log('err', error);// for debug
+    return Promise.reject(error);
 }
+);
 
 export default service;
