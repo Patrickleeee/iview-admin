@@ -6,14 +6,14 @@
             </TabPane> -->
             <TabPane label="总览" name="name1" icon="ios-star">
                 <div>
-                    <risk-map></risk-map>
+                    <home></home>
                 </div>
             </TabPane>
             <TabPane label="订单" name="name2" icon="ios-list">
                 <order-list></order-list>
             </TabPane>
             <TabPane label="销售" name="name3" icon="stats-bars">
-                标签三的内容
+                啊按时发放
             </TabPane>
         </Tabs>
     </div>
@@ -21,6 +21,7 @@
 <script>
 import riskMap from '../business-market/risk-map.vue';
 import orderList from '../order/order-list.vue';
+import home from '../home/home.vue';
 export default {
     data () {
         return {
@@ -38,7 +39,8 @@ export default {
     },
     components: {
         riskMap,
-        orderList
+        orderList,
+        home
     }
 };
 </script>
