@@ -28,7 +28,7 @@ import chinaMap from './china.json';
 echarts.registerMap('china', chinaMap);
 
 export default {
-    name: '',
+    name: 'riskMap',
     data () {
         return {
             pie,

@@ -67,12 +67,16 @@ export const otherRouter = {
 // 作为Main组件的子页面展示并且在左侧菜单显示的路由写在appRouter里
 export const appRouter = [
     {
-        path: '/risk-map',
+        path: '/shen-no-one',
         icon: 'ionic',
         title: '深一号',
-        name: 'riskmap',
+        name: 'shenNoOne',
         component: Main,
         children: [
+            { path: 'selfBusiness', title: '核心经营', name: 'shen-self-business', icon: 'disc', component: resolve => { require(['@/views/shen-no-one/self-business.vue'], resolve); } },
+            { path: 'upstreamBusiness', title: '上游经营', name: 'shen-upstream-business', icon: 'arrow-graph-up-right', component: resolve => { require(['@/views/shen-no-one/upstream-business.vue'], resolve); } },
+            { path: 'downstreamBusiness', title: '下游经营', name: 'shen-downstream-business', icon: 'arrow-graph-down-right', component: resolve => { require(['@/views/shen-no-one/downstream-business.vue'], resolve); } },
+            { path: 'majorEvent', title: '重大事件', name: 'shen-major-event', icon: 'flash', component: resolve => { require(['@/views/shen-no-one/major-event.vue'], resolve); } },
             { path: 'index', title: '深一号', name: 'riskmap_index', component: resolve => { require(['@/views/business-market/risk-map.vue'], resolve); } }
         ]
     },
@@ -84,78 +88,79 @@ export const appRouter = [
         component: Main,
         children: [
             { path: 'orderList', title: '订单列表', name: 'order-list', icon: 'table', component: resolve => { require(['@/views/order/order-list.vue'], resolve); } },
-            { path: 'systemAudit', title: '系统自动审核', name: 'system-audit', icon: 'images', component: resolve => { require(['@/views/tables/table-to-image.vue'], resolve); } }
-        ]
-    },
-    {
-        path: '/risk-alarm-management',
-        icon: 'ios-alarm',
-        title: '风险预警管理',
-        name: 'riskAlarmManagement',
-        component: Main,
-        children: [
-            { path: 'pie', title: '风险预警', name: 'pie', icon: 'ios-pie', component: resolve => { require(['@/views/test-component/card.vue'], resolve); } }
-        ]
-    },
-
-    {
-        path: '/credit-audit-management',
-        icon: 'eye',
-        title: '信用审核管理',
-        name: 'creditAuditManagement',
-        component: Main,
-        children: [
-            { path: 'manaualAudit', title: '人工信用审核', name: 'manaual-audit', icon: 'code-download', component: resolve => { require(['@/views/tables/exportable-table.vue'], resolve); } },
-            { path: 'systemAudit', title: '系统自动审核', name: 'system-audit', icon: 'images', component: resolve => { require(['@/views/tables/table-to-image.vue'], resolve); } }
-        ]
-    },
-    {
-        path: '/monitor-platform',
-        icon: 'monitor',
-        title: '监控平台',
-        name: 'monitorPlatform',
-        component: Main,
-        children: [
-            { path: 'policy', title: '决策流监控', name: 'policy', icon: 'compose', component: resolve => { require(['@/views/form/article-publish/article-publish.vue'], resolve); } }
-        ]
-    },
-    {
-        path: '/list-management',
-        icon: 'social-buffer',
-        title: '名单管理',
-        name: 'listManagement',
-        component: Main,
-        children: [
-            { path: 'whiteList', title: '白名单', name: 'white-table', icon: 'arrow-move', component: resolve => { require(['@/views/tables/dragable-table.vue'], resolve); } },
-            { path: 'greyList', title: '灰名单', name: 'grey-table', icon: 'edit', component: resolve => { require(['@/views/tables/editable-table.vue'], resolve); } },
-            { path: 'blackList', title: '黑名单', name: 'black-table', icon: 'search', component: resolve => { require(['@/views/tables/searchable-table.vue'], resolve); } },
-            { path: 'overdueList', title: '逾期名单', name: 'overdue-table', icon: 'code-download', component: resolve => { require(['@/views/tables/exportable-table.vue'], resolve); } }
-        ]
-    },
-    {
-        path: '/info-query',
-        icon: 'earth',
-        title: '信息查询管理',
-        name: 'infoQuery',
-        component: Main,
-        children: [
-            { path: 'userInfo', title: '用户信息', name: 'user-info-table', icon: 'edit', component: resolve => { require(['@/views/my-components/draggable-list/draggable-list.vue'], resolve); } },
-            { path: 'physicsInfo', title: '物理信息', name: 'physics-info-table', icon: 'search', component: resolve => { require(['@/views/tables/searchable-table.vue'], resolve); } },
-            { path: 'applyInfo', title: '申请信息', name: 'apply-info-table', icon: 'code-download', component: resolve => { require(['@/views/tables/exportable-table.vue'], resolve); } }
-        ]
-    },
-    {
-        path: '/system-settings',
-        icon: 'settings',
-        title: '系统设置',
-        name: 'systemSettings',
-        component: Main,
-        children: [
-            { path: 'user', title: '系统用户', name: 'grey-table', icon: 'edit', component: resolve => { require(['@/views/my-components/draggable-list/draggable-list.vue'], resolve); } },
-            { path: 'role', title: '系统角色', name: 'black-table', icon: 'search', component: resolve => { require(['@/views/tables/searchable-table.vue'], resolve); } },
-            { path: 'settings', title: '系统配置', name: 'overdue-table', icon: 'code-download', component: resolve => { require(['@/views/tables/exportable-table.vue'], resolve); } }
+            { path: 'systemAudit', title: '系统自动审核', name: 'system-audit', icon: 'images', component: resolve => { require(['@/views/test-component/tabs.vue'], resolve); } }
         ]
     }
+    // {
+    //     path: '/risk-alarm-management',
+    //     icon: 'ios-alarm',
+    //     title: '风险预警管理',
+    //     name: 'riskAlarmManagement',
+    //     component: Main,
+    //     children: [
+    //         { path: 'pie', title: '风险预警', name: 'pie', icon: 'ios-pie', component: resolve => { require(['@/views/test-component/card.vue'], resolve); } }
+    //     ]
+    // },
+
+    // {
+    //     path: '/credit-audit-management',
+    //     icon: 'eye',
+    //     title: '信用审核管理',
+    //     name: 'creditAuditManagement',
+    //     component: Main,
+    //     children: [
+    //         { path: 'manaualAudit', title: '人工信用审核', name: 'manaual-audit', icon: 'code-download', component: resolve => { require(['@/views/tables/exportable-table.vue'], resolve); } },
+    //         { path: 'systemAudit', title: '系统自动审核', name: 'system-audit', icon: 'images', component: resolve => { require(['@/views/tables/table-to-image.vue'], resolve); } }
+    //     ]
+    // },
+    // {
+    //     path: '/monitor-platform',
+    //     icon: 'monitor',
+    //     title: '监控平台',
+    //     name: 'monitorPlatform',
+    //     component: Main,
+    //     children: [
+    //         { path: 'policy', title: '决策流监控', name: 'policy', icon: 'compose', component: resolve => { require(['@/views/form/article-publish/article-publish.vue'], resolve); } }
+    //     ]
+    // },
+    // {
+    //     path: '/list-management',
+    //     icon: 'social-buffer',
+    //     title: '名单管理',
+    //     name: 'listManagement',
+    //     component: Main,
+    //     children: [
+    //         { path: 'whiteList', title: '白名单', name: 'white-table', icon: 'arrow-move', component: resolve => { require(['@/views/tables/dragable-table.vue'], resolve); } },
+    //         { path: 'greyList', title: '灰名单', name: 'grey-table', icon: 'edit', component: resolve => { require(['@/views/tables/editable-table.vue'], resolve); } },
+    //         { path: 'blackList', title: '黑名单', name: 'black-table', icon: 'search', component: resolve => { require(['@/views/tables/searchable-table.vue'], resolve); } },
+    //         { path: 'overdueList', title: '逾期名单', name: 'overdue-table', icon: 'code-download', component: resolve => { require(['@/views/tables/exportable-table.vue'], resolve); } }
+    //     ]
+    // },
+    // {
+    //     path: '/info-query',
+    //     icon: 'earth',
+    //     title: '信息查询管理',
+    //     name: 'infoQuery',
+    //     component: Main,
+    //     children: [
+    //         { path: 'userInfo', title: '用户信息', name: 'user-info-table', icon: 'edit', component: resolve => { require(['@/views/my-components/draggable-list/draggable-list.vue'], resolve); } },
+    //         { path: 'physicsInfo', title: '物理信息', name: 'physics-info-table', icon: 'search', component: resolve => { require(['@/views/tables/searchable-table.vue'], resolve); } },
+    //         { path: 'applyInfo', title: '申请信息', name: 'apply-info-table', icon: 'code-download', component: resolve => { require(['@/views/tables/exportable-table.vue'], resolve); } }
+    //     ]
+    // },
+    // {
+    //     path: '/system-settings',
+    //     icon: 'settings',
+    //     title: '系统设置',
+    //     name: 'systemSettings',
+    //     component: Main,
+    //     children: [
+    //         { path: 'user', title: '系统用户', name: 'grey-table', icon: 'edit', component: resolve => { require(['@/views/my-components/draggable-list/draggable-list.vue'], resolve); } },
+    //         { path: 'role', title: '系统角色', name: 'black-table', icon: 'search', component: resolve => { require(['@/views/tables/searchable-table.vue'], resolve); } },
+    //         { path: 'settings', title: '系统配置', name: 'overdue-table', icon: 'code-download', component: resolve => { require(['@/views/tables/exportable-table.vue'], resolve); } }
+    //     ]
+    // }
+
     // hide
     // {
     //     path: '/international',

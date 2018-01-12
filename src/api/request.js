@@ -1,4 +1,5 @@
 import fetch from './fetch';
+import axios from 'axios';
 
 export function loginByUsername (username, password) {
     const data = {
@@ -16,7 +17,8 @@ export function loginByUsername (username, password) {
                 ret += encodeURIComponent(it) + '=' + encodeURIComponent(data[it]) + '&';
             }
             return ret;
-        }]
+        }],
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'}
     });
 }
 
@@ -46,4 +48,16 @@ export function getCityData () {
         url: '/dealer/city',
         method: 'get'
     });
+}
+
+export function listProvinces () {
+    return fetch({
+        url: '/services/CompanyApp/actions/companyAddOfProvince/invoke',
+        method: 'post',
+        data: {}
+    });
+    // return fetch({
+    //     url: '/services/TestApp',
+    //     method: 'get'
+    // });
 }

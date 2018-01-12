@@ -66,30 +66,34 @@ export default {
                     // this.$store.dispatch('LoginByUsername', this.form).then(() => {
                     //     console.log('result:', 'success');
                     // });
-                    new Promise((resolve, reject) => {
-                        loginByUsername(this.form.userName, this.form.password)
-                            .then(response => {
-                                console.log('result', response);
-                                if (response.status === 200) {
-                                    Cookies.set('Authorization', 'bearer '.concat(response.data.access_token));
-                                    console.log('Authorization:', Cookies.get('Authorization'));
-                                    this.$store.commit('setAvator', 'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3448484253,3685836170&fm=27&gp=0.jpg');
-                                    if (this.form.userName === 'iview_admin') {
-                                        Cookies.set('access', 0);
-                                    } else {
-                                        Cookies.set('access', 1);
-                                    }
-                                    this.$router.push({
-                                        name: 'home_index'
-                                    });
-                                    resolve();
-                                }
-                            })
-                            .catch(error => {
-                                reject(error);
-                            });
-                    });
+                    // 先注释掉登录
+                    // new Promise((resolve, reject) => {
+                    //     loginByUsername(this.form.userName, this.form.password)
+                    //         .then(response => {
+                    //             console.log('result', response);
+                    //             if (response.status === 200) {
+                    //                 Cookies.set('Authorization', 'bearer '.concat(response.data.access_token));
+                    //                 console.log('Authorization:', Cookies.get('Authorization'));
+                    //                 this.$store.commit('setAvator', 'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3448484253,3685836170&fm=27&gp=0.jpg');
+                    //                 if (this.form.userName === 'iview_admin') {
+                    //                     Cookies.set('access', 0);
+                    //                 } else {
+                    //                     Cookies.set('access', 1);
+                    //                 }
+                    //                 this.$router.push({
+                    //                     name: 'home_index'
+                    //                 });
+                    //                 resolve();
+                    //             }
+                    //         })
+                    //         .catch(error => {
+                    //             reject(error);
+                    //         });
+                    // });
                 }
+                this.$router.push({
+                    name: 'home_index'
+                });
             });
         }
     }
