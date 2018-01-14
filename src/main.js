@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import iView from 'iview';
+// import ElementUI from 'element-ui';
 import {router} from './router/index';
 import {appRouter} from './router/router';
 import store from './store';
@@ -15,6 +16,7 @@ Vue.prototype.$echarts = echarts;
 
 Vue.use(VueI18n);
 Vue.use(iView);
+// Vue.user(ElementUI);
 Vue.component('virtual-scroller', VirtualScroller);
 
 new Vue({

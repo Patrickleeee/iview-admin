@@ -18,8 +18,8 @@
                                 <Col span="16" style="padding-left:6px;">
                                     <Row class-name="made-child-con-middle" type="flex" align="middle">
                                         <div>
-                                            <b class="card-user-infor-name">Homefax</b>
-                                            <p>super admin</p>
+                                            <b class="card-user-infor-name">深一号工厂</b>
+                                            <p>senbao</p>
                                         </div>
                                     </Row>
                                 </Col>
@@ -74,7 +74,7 @@
                             :end-val="count.createUser"
                             iconType="android-person-add"
                             color="#2d8cf0"
-                            intro-text="今日新增用户"
+                            intro-text="已借款供应商数量"
                         ></infor-card>
                     </Col>
                     <Col :xs="24" :sm="12" :md="6" :style="{marginBottom: '10px'}">
@@ -84,7 +84,7 @@
                             iconType="ios-eye"
                             color="#64d572"
                             :iconSize="50"
-                            intro-text="今日浏览量"
+                            intro-text="借款订单数"
                         ></infor-card>
                     </Col>
                     <Col :xs="24" :sm="12" :md="6" :style="{marginBottom: '10px'}">
@@ -93,7 +93,7 @@
                             :end-val="count.collection"
                             iconType="upload"
                             color="#ffd572"
-                            intro-text="今日数据采集量"
+                            intro-text="已放款金额"
                         ></infor-card>
                     </Col>
                     <Col :xs="24" :sm="12" :md="6" :style="{marginBottom: '10px'}">
@@ -102,7 +102,7 @@
                             :end-val="count.transfer"
                             iconType="shuffle"
                             color="#f25e43"
-                            intro-text="今日服务调用量"
+                            intro-text="待回款金额"
                         ></infor-card>
                     </Col>
                 </Row>
@@ -110,7 +110,7 @@
                     <Card :padding="0">
                         <p slot="title" class="card-title">
                             <Icon type="map"></Icon>
-                            今日服务调用地理分布
+                            下游供应商（借款）地理分布
                         </p>
                         <div class="map-con">
                             <Col span="10">
@@ -131,7 +131,7 @@
                 <Card>
                     <p slot="title" class="card-title">
                         <Icon type="android-map"></Icon>
-                        上周每日来访量统计
+                        上周每日借款订单统计
                     </p>
                     <div class="data-source-row">
                         <visite-volume></visite-volume>
@@ -142,7 +142,7 @@
                 <Card>
                     <p slot="title" class="card-title">
                         <Icon type="ios-pulse-strong"></Icon>
-                        数据来源统计
+                        借款订单商品品类分布
                     </p>
                     <div class="data-source-row">
                         <data-source-pie></data-source-pie>
@@ -153,7 +153,7 @@
                 <Card>
                     <p slot="title" class="card-title">
                         <Icon type="android-wifi"></Icon>
-                        各类用户服务调用变化统计
+                        本月可放款/待回款金额
                     </p>
                     <div class="data-source-row">
                         <user-flow></user-flow>
@@ -219,7 +219,7 @@ export default {
             count: {
                 createUser: 496,
                 visit: 3264,
-                collection: 24389305,
+                collection: 2439305,
                 transfer: 39503498
             },
             cityData: cityData,

@@ -13,7 +13,6 @@
                 <order-list></order-list>
             </TabPane>
             <TabPane label="销售" name="name3" icon="stats-bars">
-                标签三的内容
             </TabPane>
         </Tabs>
     </div>

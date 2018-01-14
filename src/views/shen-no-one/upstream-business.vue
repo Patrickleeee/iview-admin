@@ -19,7 +19,7 @@
     </div>
 </template>
 <script>
-import riskMap from '../business-market/risk-map.vue';
+import riskMap from './data/upstream-dashboard.vue';
 import orderList from '../order/order-list.vue';
 export default {
     data () {
@@ -54,13 +54,13 @@ export default {
     text-align: center;
 }
 .self-tabs-style > .ivu-tabs{
-    height:99%
+    height:100%
 }
 .self-tabs-style > .ivu-tabs > .ivu-tabs-content{
     height:100%
 }
 .ivu-tabs > .ivu-tabs-content-animated{
-    height:99%
+    height:100%
 }
 
 </style> 

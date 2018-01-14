@@ -7,20 +7,20 @@ import echarts from 'echarts';
 
 const option = {
     tooltip: {
-        formatter: '{a} <br/>{b} : {c}%'
+        formatter: '{a} <br/>{b} : {c}万¥'
     },
     series: [
         {
-            name: '入流量',
+            name: '可放款',
             type: 'gauge',
             min: 0,
             max: 1000,
             detail: {
-                formatter: '{value}Mb+',
+                formatter: '{value}万¥',
                 fontSize: 18,
                 offsetCenter: [0, '50px']
             },
-            data: [{value: 50, name: '当前入流量'}],
+            data: [{value: 50, name: '当月可放款'}],
             center: ['25%', '50%'],
             radius: '80%',
             title: {
@@ -37,16 +37,16 @@ const option = {
             }
         },
         {
-            name: '出流量',
+            name: '待回款',
             type: 'gauge',
             min: 0,
             max: 1000,
             detail: {
-                formatter: '{value}Mb+',
+                formatter: '{value}万¥',
                 fontSize: 18,
                 offsetCenter: [0, '50px']
             },
-            data: [{value: 50, name: '当前出流量'}],
+            data: [{value: 50, name: '当月待回款'}],
             center: ['75%', '50%'],
             radius: '80%',
             title: {
