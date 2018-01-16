@@ -12,16 +12,16 @@
             <TabPane label="订单" name="name2" icon="ios-list">
                 <order-list></order-list>
             </TabPane>
-            <TabPane label="销售" name="name3" icon="stats-bars">
-                啊按时发放
+            <TabPane label="贷后" name="name3" icon="stats-bars">
+                <afterLoan></afterLoan>
             </TabPane>
         </Tabs>
     </div>
 </template>
 <script>
-import riskMap from '../business-market/risk-map.vue';
 import orderList from '../order/order-list.vue';
 import home from '../home/home.vue';
+import afterLoan from './data/after-loan.vue';
 export default {
     data () {
         return {
@@ -38,9 +38,9 @@ export default {
         };
     },
     components: {
-        riskMap,
         orderList,
-        home
+        home,
+        afterLoan
     }
 };
 </script>
@@ -56,13 +56,13 @@ export default {
     text-align: center;
 }
 .self-tabs-style > .ivu-tabs{
-    height:99%
+    height:180%
 }
 .self-tabs-style > .ivu-tabs > .ivu-tabs-content{
-    height:100%
+    height:180%
 }
 .ivu-tabs > .ivu-tabs-content-animated{
-    height:99%
+    height:180%
 }
 
 </style> 

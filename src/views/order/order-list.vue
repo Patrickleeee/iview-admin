@@ -135,7 +135,7 @@ export default {
 
                         return h('Tag', {
                             props: {
-                                type: 'dot',
+                                type: 'text',
                                 color: color
                             }
                         }, text);
@@ -243,14 +243,14 @@ export default {
         }
     },
     mounted () {
-        new Promise((resolve, reject) => {
-            listProvinces().then(res => {
-                console.log('provincelist:', res);
-                resolve();
-            }).catch(error => {
-                reject(error);
-            });
-        });
+        // new Promise((resolve, reject) => {
+        //     listProvinces().then(res => {
+        //         console.log('provincelist:', res);
+        //         resolve();
+        //     }).catch(error => {
+        //         reject(error);
+        //     });
+        // });
     }
 };
 </script>

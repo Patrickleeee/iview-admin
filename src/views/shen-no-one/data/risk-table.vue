@@ -1,0 +1,117 @@
+<template>
+    <div>
+        <Table :data="tableData1" :columns="tableColumns1" stripe></Table>
+    </div>
+    
+</template>
+<script>
+export default {
+    data () {
+        return {
+            type: [
+                '经营风险', '财务风险', '法律与信用风险', '其他风险'
+            ],
+            content: [
+                '本月公司、法人账户销售回款入金额度较上月下降比例',
+                '本月经销商订单金额较上年度同期下降比例',
+                '本月经销商订单金额较上月下降比例',
+                '本月公司、法人账户销售回款入金总额',
+                '本季度经销商累计订单金额较上年度同期下降比例',
+                '最近三个月公司、法人账户月平均销售回款入金额度',
+                '连续出现3个月出现公司、法人账户累计销售回款入金额度',
+                '连续3个月出现经销商月度订单金额较上月下降',
+                '近3个月经销商月平均订单金额',
+                '公司净资产较上月下降比例',
+                '公司资产负债率',
+                '公司毛利润率或净利润率',
+                '公司应收账款周转天数或存货周转天数',
+                '本月公司主营业务收入金额较上月下降比例',
+                '公司年末净资产余额较年初下降比例（股东分红情况除外）',
+                '公司资产负债率或公司速动比率或流动比率',
+                '本季度公司主营业务收入金额较上年同期下降比例',
+                '本季度公司累计净利润金额或经我司评估本年度公司净利润将处于亏损状态',
+                '企业及其法人代表人涉及行政机关处罚、司法被执行、民间借款诉讼、金融机构诉讼，且累计执行金额占即期净资产比例',
+                '借款人、借款企业贷款尚处于逾期状态',
+                '企业提供虚假资料、或拒绝提供我司贷后管理、信用评估所需资料或数据信息'
+            ],
+            // 每行数据
+            tableData1: this.mockTableData1(),
+            // 列名
+            tableColumns1: [
+                {title: '序号', align: 'center', type: 'index', width: 60},
+                {title: '管理类型',
+                    key: 'gllx',
+                    render: (h, params) => {
+                        return h('div', this.formateType(this.tableData1[params.index].gllx));
+                    }},
+                {title: '监测内容',
+                    key: 'jcnr',
+                    render: (h, params) => {
+                        return h('div', this.formateContent(this.tableData1[params.index].jcnr));
+                    }},
+                {title: '规则属性',
+                    key: 'gzsx',
+                    render: (h, params) => {
+                        const row = params.row;
+                        const color = row.gzsx === 1 ? 'green' : row.gzsx === 2 ? 'yellow' : 'red';
+                        const text = row.gzsx === 1 ? '弱规则' : row.gzsx === 2 ? '中规则' : '强规则';
+
+                        return h('Tag', {
+                            props: {
+                                type: 'dot',
+                                color: color
+                            }
+                        }, text);
+                    }},
+                {title: '当前指标值',
+                    key: 'dqzb',
+                    width: 160
+                },
+                {title: '上期指标值',
+                    key: 'sqzb',
+                    width: 160
+                }
+            ],
+            total: 1000,
+            current: 1
+        };
+    },
+    methods: {
+        mockTableData1 () {
+            let data = [];
+            for (let i = 0; i < 20; i++) {
+                data.push({
+                    gllx: i,
+                    jcnr: i,
+                    gzsx: Math.floor(Math.random() * 3 + 1),
+                    dqzb: Math.floor(Math.random() * 3 + 1) * 33,
+                    sqzb: Math.floor(Math.random() * 3 + 1) * 33
+                });
+            }
+            return data;
+        },
+        formatDate (date) {
+            const y = date.getFullYear();
+            let m = date.getMonth() + 1;
+            m = m < 10 ? '0' + m : m;
+            let d = date.getDate();
+            d = d < 10 ? ('0' + d) : d;
+            return y + '-' + m + '-' + d;
+        },
+        formateType (type) {
+            if (type < 9) {
+                return this.type[0];
+            } else if (type > 8 & type < 18) {
+                return this.type[1];
+            } else if (type > 17 & type < 20) {
+                return this.type[2];
+            } else {
+                return this.type[3];
+            }
+        },
+        formateContent (index) {
+            return this.content[index];
+        }
+    }
+};
+</script>

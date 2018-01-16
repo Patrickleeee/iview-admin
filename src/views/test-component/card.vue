@@ -1,113 +1,67 @@
 <template>
-    <Card style="width:350px">
-        <p slot="title">
-            <Icon type="ios-film-outline"></Icon>
-            Classic film
-        </p>
-        <a href="#" slot="extra" @click.prevent="changeLimit">
-            <Icon type="ios-loop-strong"></Icon>
-            Change
-        </a>
-        <ul>
-            <li v-for="item in randomMovieList">
-                <a :href="item.url" target="_blank">{{ item.name }}</a>
-                <span style="float:right">
-                    <Icon type="ios-star" v-for="n in 4" :key="n"></Icon>
-                    <Icon type="ios-star" v-if="item.rate >= 9.5"></Icon>
-                    <Icon type="ios-star-half" v-else></Icon>
-                    {{ item.rate }}
-                    
-                    <!-- <Rate show-text allow-half :value="item.rate">
-                        <span style="color: #f5a623">{{ item.rate }}</span>
-                    </Rate> -->
-                </span>
-            </li>
-        </ul>
-    </Card>
+    <Row style="background:#eee;padding:20px">
+        <Col span="11">
+            <Card :bordered="false">
+                <p slot="title">下游经销商</p>
+                <p>累计借款数量    1</p>
+                <p>逾期数量        2</p>
+                <p>待还款订单数量  3</p>
+                <p>逾期订单数量    4</p>
+                <p>待还款总金额    5</p>
+                <p>逾期总金额      6</p>
+            </Card>
+        </Col>
+        <Col span="11" offset="2">
+            <Card shadow>
+                <p slot="title">上游经销商</p>
+                <p>累计借款数量    1</p>
+                <p>逾期数量        2</p>
+                <p>待还款订单数量  3</p>
+                <p>逾期订单数量    4</p>
+                <p>待还款总金额    5</p>
+                <p>逾期总金额      6</p>
+            </Card>
+        </Col>
+    </Row>
 </template>
 <script>
     export default {
+        name: 'upstreamCard',
         data () {
             return {
                 movieList: [
                     {
-                        name: 'The Shawshank Redemption',
+                        name: '累计借款数量',
                         url: 'https://movie.douban.com/subject/1292052/',
                         rate: 9.6
                     },
                     {
-                        name: 'Leon:The Professional',
+                        name: '逾期数量',
                         url: 'https://movie.douban.com/subject/1295644/',
                         rate: 9.4
                     },
                     {
-                        name: 'Farewell to My Concubine',
+                        name: '待还款订单数量',
                         url: 'https://movie.douban.com/subject/1291546/',
                         rate: 9.5
                     },
                     {
-                        name: 'Forrest Gump',
+                        name: '逾期订单数量',
                         url: 'https://movie.douban.com/subject/1292720/',
                         rate: 9.4
                     },
                     {
-                        name: 'Life Is Beautiful',
+                        name: '待还款总金额',
                         url: 'https://movie.douban.com/subject/1292063/',
                         rate: 9.5
                     },
                     {
-                        name: 'Spirited Away',
+                        name: '逾期总金额',
                         url: 'https://movie.douban.com/subject/1291561/',
                         rate: 9.2
-                    },
-                    {
-                        name: 'Schindler\'s List',
-                        url: 'https://movie.douban.com/subject/1295124/',
-                        rate: 9.4
-                    },
-                    {
-                        name: 'The Legend of 1900',
-                        url: 'https://movie.douban.com/subject/1292001/',
-                        rate: 9.2
-                    },
-                    {
-                        name: 'WALL·E',
-                        url: 'https://movie.douban.com/subject/2131459/',
-                        rate: 9.3
-                    },
-                    {
-                        name: 'Inception',
-                        url: 'https://movie.douban.com/subject/3541415/',
-                        rate: 9.2
                     }
-                ],
-                randomMovieList: []
+                ]
             };
-        },
-        methods: {
-            changeLimit () {
-                function getArrayItems (arr, num) {
-                    const temp_array = [];
-                    for (let index in arr) {
-                        temp_array.push(arr[index]);
-                    }
-                    const return_array = [];
-                    for (let i = 0; i < num; i++) {
-                        if (temp_array.length > 0) {
-                            const arrIndex = Math.floor(Math.random() * temp_array.length);
-                            return_array[i] = temp_array[arrIndex];
-                            temp_array.splice(arrIndex, 1);
-                        } else {
-                            break;
-                        }
-                    }
-                    return return_array;
-                }
-                this.randomMovieList = getArrayItems(this.movieList, 5);
-            }
-        },
-        mounted () {
-            this.changeLimit();
         }
     };
 </script>
