@@ -1,7 +1,8 @@
 <template>
     <div :style="styleObj">
-        <Table :show-header=false :border=true size="small" :height="height" :width="width" :data="tableData1" :columns="tableColumns1" stripe></Table>
-        <Table :show-header=false :border=true size="small" :height="height" :width="width" :data="tableData1" :columns="tableColumns2" stripe></Table>
+        <Table :show-header=false :border=true :disabled-hover=true size="small" :height="height" :width="width" :data="tableData1" :columns="tableColumns1" stripe></Table>
+        <p style="padding:1.5px"></p>
+        <Table :show-header=false :border=true :disabled-hover=true size="small" :height="height" :width="width" :data="tableData1" :columns="tableColumns2" stripe></Table>
     </div>
     
 </template>

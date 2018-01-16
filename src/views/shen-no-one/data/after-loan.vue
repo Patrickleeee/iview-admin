@@ -4,13 +4,13 @@
         <Col :md="24" :lg="15" :style="{marginBottom: '10px'}">
             <Card>
                 <p slot="title" class="card-title">
-                    <Icon type="android-map"></Icon>
+                    <Icon type="information-circled"></Icon>
                     基本信息
                 </p>
                 <div class="data-source-row">
                     <b class="card-user-infor-name">深一号工厂</b>
                     <div class="line-gray"></div>
-                        <upstream-table :style-obj="{margin: '5px 0 0 11px'}"></upstream-table>
+                        <upstream-table :style-obj="{margin: '5px 0 0 0px'}"></upstream-table>
                 </div>
             </Card>
         </Col>

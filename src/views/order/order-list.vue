@@ -135,7 +135,7 @@ export default {
 
                         return h('Tag', {
                             props: {
-                                type: 'text',
+                                type: 'dot',
                                 color: color
                             }
                         }, text);
