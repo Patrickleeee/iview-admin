@@ -168,7 +168,7 @@
 	                            <div class="timeline-content">
 	                                <h2 class="title">Web Design</h2>
 	                                <p class="description">
-	                                    <event-card></event-card>
+	                                    <event-card description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent euismod fringilla nibh, feugiat pretium velit. Integer elit urna, maximus vitae rutrum hendrerit, pretium sed massa."></event-card>
 	                                </p>
 	                                <a href="#" class="read-more">read more</a>
 	                            </div>
@@ -181,7 +181,7 @@
 	                            <div class="timeline-content right">
 	                                <h2 class="title">Web Development</h2>
 	                                <p class="description">
-	                                    <event-card></event-card>
+	                                    <event-card description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent euismod fringilla nibh, feugiat pretium velit. Integer elit urna, maximus vitae rutrum hendrerit, pretium sed massa."></event-card>
 	                                </p>
 	                                <a href="#" class="read-more">read more</a>
 	                            </div>
@@ -194,7 +194,7 @@
 	                            <div class="timeline-content">
 	                                <h2 class="title">Brand Building</h2>
 	                                <p class="description">
-	                                    <event-card></event-card>
+	                                    <event-card description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent euismod fringilla nibh, feugiat pretium velit. Integer elit urna, maximus vitae rutrum hendrerit, pretium sed massa."></event-card>
 	                                </p>
 	                                <a href="#" class="read-more">read more</a>
 	                            </div>
@@ -207,7 +207,7 @@
 	                            <div class="timeline-content right">
 	                                <h2 class="title">Responsive Design</h2>
 	                                <p class="description">
-	                                    <event-card></event-card>
+	                                    <event-card description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent euismod fringilla nibh, feugiat pretium velit. Integer elit urna, maximus vitae rutrum hendrerit, pretium sed massa."></event-card>
 	                                </p>
 	                                <a href="#" class="read-more">read more</a>
 	                            </div>

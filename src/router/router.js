@@ -74,8 +74,8 @@ export const appRouter = [
         component: Main,
         children: [
             { path: 'selfBusiness', title: '核心工厂', name: 'shen-self-business', icon: 'disc', component: resolve => { require(['@/views/shen-no-one/self-business.vue'], resolve); } },
-            { path: 'downstreamBusiness', title: '下游经营', name: 'shen-downstream-business', icon: 'arrow-graph-down-right', component: resolve => { require(['@/views/shen-no-one/downstream-business.vue'], resolve); } },
-            { path: 'upstreamBusiness', title: '上游经营', name: 'shen-upstream-business', icon: 'arrow-graph-up-right', component: resolve => { require(['@/views/shen-no-one/upstream-business.vue'], resolve); } },
+            { path: 'downstreamBusiness', title: '下游客户', name: 'shen-downstream-business', icon: 'arrow-graph-down-right', component: resolve => { require(['@/views/shen-no-one/downstream-business.vue'], resolve); } },
+            { path: 'upstreamBusiness', title: '上游客户', name: 'shen-upstream-business', icon: 'arrow-graph-up-right', component: resolve => { require(['@/views/shen-no-one/upstream-business.vue'], resolve); } },
             { path: 'majorEvent', title: '重大事件', name: 'shen-major-event', icon: 'flash', component: resolve => { require(['@/views/shen-no-one/major-event.vue'], resolve); } }
             // { path: 'index', title: '深一号', name: 'riskmap_index', component: resolve => { require(['@/views/business-market/risk-map.vue'], resolve); } }
         ]

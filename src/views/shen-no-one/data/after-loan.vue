@@ -21,7 +21,7 @@
                     风险评分
                 </p>
                 <div class="data-source-row">
-                    <load-watch></load-watch>
+                    <loan-watch></loan-watch>
                 </div>
             </Card>
         </Col>
@@ -35,7 +35,7 @@
 <script>
 
 import riskTable from './risk-table.vue';
-import loadWatch from './loan-watch.vue';
+import loanWatch from './loan-watch.vue';
 import upstreamTable from './upstream-table.vue';
 import upstreamCard from '../../test-component/card.vue';
 export default {
@@ -46,7 +46,7 @@ export default {
     },
     components: {
         riskTable,
-        loadWatch,
+        loanWatch,
         upstreamCard,
         upstreamTable
     }

@@ -1,32 +1,27 @@
 <template lang="html">
   <div class="dashboard">          
     <div class="flex-container column">
-        <div class="item one" id="mapContainer" style="transform: translate(12%,-10%) scale(0.8)">
+        <div class="item one" id="watchContainer" style="transform: translate(12%,-10%) scale(0.8)">
         </div>
     </div>
   </div>
 </template>
         
 <script>
-import watch from '../../business-market/data/watch';
+import setWatchOption from '../../business-market/data/watch';
 
 export default {
     name: 'loanWatch',
     data () {
         return {
-            watch,
-            items: []
         };
     },
     methods: {
-        drawChinaMap () {
-            this.items = document.querySelectorAll('.flex-container .item');
-            for (let i = 0; i < this.items.length; i++) {
-                this.items[i].dataset.order = i + 1;
-            }
-            // map
-            var myMap = this.$echarts.init(document.getElementById('mapContainer'));
-            myMap.setOption(watch);
+        drawWatch () {
+            // watch
+            var myWatch = this.$echarts.init(document.getElementById('watchContainer'));
+            let watchOption = setWatchOption([220, -40], 10, 70, 69, 67.8);
+            myWatch.setOption(watchOption);
         },
         _resize () {
             this.$root.charts.forEach((myChart) => {
@@ -35,7 +30,7 @@ export default {
         }
     },
     mounted () {
-        this.drawChinaMap();
+        this.drawWatch();
     }
 };
 </script>
