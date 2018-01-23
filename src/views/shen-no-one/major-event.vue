@@ -40,7 +40,6 @@
 		    text-align: center;
 		}
 		.main-timeline .timeline-icon i{
-		    font-size: 3px;
 		    line-height: 50px;
 		    color: #fff;
 		}
