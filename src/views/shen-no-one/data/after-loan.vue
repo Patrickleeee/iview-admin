@@ -8,7 +8,7 @@
                     基本信息
                 </p>
                 <div class="data-source-row">
-                    <b class="card-user-infor-name">深一号工厂</b>
+                    <b class="card-factory-info-name">深一号工厂</b>
                     <div class="line-gray"></div>
                         <upstream-table :style-obj="{margin: '5px 0 0 0px'}"></upstream-table>
                 </div>
@@ -52,3 +52,11 @@ export default {
     }
 };
 </script>
+
+<style scoped>
+.card-factory-info-name{
+    font-size: 1.5em;
+    color: #2d8cf0;
+}
+</style>
+

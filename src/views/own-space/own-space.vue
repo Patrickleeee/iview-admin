@@ -216,11 +216,11 @@ export default {
             });
         },
         init () {
-            this.userForm.name = 'Lison';
-            this.userForm.cellphone = '17712345678';
-            this.initPhone = '17712345678';
-            this.userForm.company = 'TalkingData';
-            this.userForm.department = '可视化部门';
+            this.userForm.name = 'homefax';
+            this.userForm.cellphone = '18888888888';
+            this.initPhone = '18888888888';
+            this.userForm.company = 'Homefax';
+            this.userForm.department = '平台部';
         },
         cancelInputCodeBox () {
             this.inputCodeVisible = false;

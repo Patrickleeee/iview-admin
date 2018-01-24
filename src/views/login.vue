@@ -90,10 +90,19 @@ export default {
                     //             reject(error);
                     //         });
                     // });
+                    if (this.form.userName === 'homefax' & this.form.password === 'homefax') {
+                        this.$store.commit('setAvator', 'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3448484253,3685836170&fm=27&gp=0.jpg');
+                        this.$router.push({
+                            name: 'home_index'
+                        });
+                    } else {
+                        this.$Notice.error({
+                            title: '错误提醒',
+                            desc: '请输入正确的用户名和密码！',
+                            duration: 3
+                        });
+                    }
                 }
-                this.$router.push({
-                    name: 'home_index'
-                });
             });
         }
     }
