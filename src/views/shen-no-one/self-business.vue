@@ -15,6 +15,15 @@
             <TabPane label="贷后" name="name3" icon="stats-bars">
                 <afterLoan></afterLoan>
             </TabPane>
+            <TabPane label="背景" name="name4" icon="stats-bars">
+                <background></background>
+            </TabPane>
+            <TabPane label="风险" name="name5" icon="stats-bars">
+                <riskInfo></riskInfo>
+            </TabPane>
+            <TabPane label="经营" name="name6" icon="stats-bars">
+                
+            </TabPane>
         </Tabs>
     </div>
 </template>
@@ -22,6 +31,8 @@
 import orderList from '../order/order-list.vue';
 import home from '../home/home.vue';
 import afterLoan from './data/after-loan.vue';
+import background from './data/background.vue';
+import riskInfo from './data/risk-info.vue';
 export default {
     data () {
         return {
@@ -40,7 +51,9 @@ export default {
     components: {
         orderList,
         home,
-        afterLoan
+        afterLoan,
+        background,
+        riskInfo
     }
 };
 </script>
@@ -56,13 +69,13 @@ export default {
     text-align: center;
 }
 .self-tabs-style > .ivu-tabs{
-    height:180%
+    height:280%
 }
 .self-tabs-style > .ivu-tabs > .ivu-tabs-content{
-    height:180%
+    height:350%
 }
 .ivu-tabs > .ivu-tabs-content-animated{
-    height:180%
+    height:350%
 }
 
 </style> 
