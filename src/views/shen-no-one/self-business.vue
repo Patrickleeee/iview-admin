@@ -1,9 +1,6 @@
 <template lang="html">
     <div class="self-tabs-style">
         <Tabs value="name1" :animated="false">
-            <!-- <TabPane :label="label" name="总览">
-                <risk-map></risk-map>
-            </TabPane> -->
             <TabPane label="总览" name="name1" icon="ios-star">
                 <div>
                     <home></home>
@@ -22,7 +19,7 @@
                 <riskInfo></riskInfo>
             </TabPane>
             <TabPane label="经营" name="name6" icon="stats-bars">
-                
+                <manageInfo></manageInfo>
             </TabPane>
         </Tabs>
     </div>
@@ -33,6 +30,7 @@ import home from '../home/home.vue';
 import afterLoan from './data/after-loan.vue';
 import background from './data/background.vue';
 import riskInfo from './data/risk-info.vue';
+import manageInfo from './data/manage-info.vue';
 export default {
     data () {
         return {
@@ -53,7 +51,8 @@ export default {
         home,
         afterLoan,
         background,
-        riskInfo
+        riskInfo,
+        manageInfo
     }
 };
 </script>

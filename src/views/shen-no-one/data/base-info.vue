@@ -1,50 +1,52 @@
 <template>
-    <div :style="styleObj">
+    <div class="home-main">
         <Row :gutter="5" class="margin-top-10">
-            <Col :md="24" :lg="15" :style="{marginBottom: '10px'}">
-                <Table :border=true :disabled-hover=true size="middle" :data="tableData1" :columns="tableColumns1" stripe></Table>
-            </Col>
-            <Col :md="24" :lg="9" :style="{marginBottom: '10px'}">  
+            <Col :md="24" :lg="9" :style="{marginBottom: '10px'}">
                 <Card>
                     <p slot="title" class="card-title">
-                        <Icon type="ios-pulse-strong"></Icon>
-                        风险评分
+                        <Icon type="home"></Icon>
+                        公司信息:深圳市森堡家俬有限公司
                     </p>
-                    <div class="data-source-row">
-                        <loan-watch></loan-watch>
-                    </div>
-                </Card> 
-            </Col>   
+                    <Table :show-header=false :border=true :disabled-hover=true size="large" :data="tableData1" :columns="tableColumns1" stripe></Table>
+                </Card>
+            </Col>
+            <Col :md="24" :lg="15" :style="{marginBottom: '10px'}">  
+                <Card>
+                <Table :show-header=false :border=true :columns="columnsInfo" :data="dataInfo"></Table>
+                <Table :show-header=false :border=true :columns="columnsInfo1" :data="dataInfo1" size="middle" ></Table>
+                </Card>
+            </Col>
          </Row>
          <Row :gutter="5" class="margin-top-10">
-             <Table :show-header=false :border=true :columns="columnsInfo" :data="dataInfo"></Table>
-             <Table :show-header=false :border=true :columns="columnsInfo1" :data="dataInfo1"></Table>
-             <p style="padding:10px"></p>
-             <Table :show-header=false :border=true :columns="columnsPerson" :data="dataPerson"></Table>
-             <Table :border=true :row-class-name="rowClassName" :columns="columnsCompany" :data="dataCompany"></Table>
+             <Card>
+                <p slot="title" class="card-title">
+                    <Icon type="ios-pulse-strong"></Icon>
+                    郭向阳-相关公司（法人:4家 股东:12家 高管:10家）
+                </p>
+                <Table :border=true :row-class-name="rowClassName" :columns="columnsCompany" :data="dataCompany"></Table>
+            </Card>
          </Row>
     </div>
     
 </template>
 <script>
-import loanWatch from './loan-watch.vue';
+import pie from './base-pie.vue';
 export default {
     components: {
-        loanWatch
+        pie
     },
     data () {
         return {
             // 每行数据
             tableData1: this.mockTableData1(),
-            tableData2: this.mockTableData2(),
             // 列名
             tableColumns1: [
                 {title: '法人信息',
                     key: 'lx',
-                    width: '35%',
+                    width: '45%',
                     render: (h, params) => {
                         const color = 'green';
-                        const text = '郭向阳(共有12家公司，分布如下：)';
+                        const text = '郭向阳(共12家公司)';
                         return h('div', [
                             h('img', {
                                 props: {
@@ -53,7 +55,7 @@ export default {
                                 },
                                 attrs: {
                                     src: 'https://img.tianyancha.com/logo/human2/6d3e7ce38f436da26f4f92bc3118ddda.png@!watermark01',
-                                    style: 'width: 100px;height: 100px;border-radius: 2px;'
+                                    style: 'width: 120px;height: 110px;border-radius: 5px;padding:5px;'
                                 },
                                 style: {
                                 }
@@ -63,144 +65,60 @@ export default {
                                     type: 'text',
                                     color: color
                                 }
+                            }, '本公司状态：'),
+                            h('Tag', {
+                                props: {
+                                    type: 'text',
+                                    color: 'red'
+                                }
+                            }, '存续(在营、开业、在册)'),
+                            h('Tag', {
+                                props: {
+                                    type: 'text',
+                                    color: color
+                                }
                             }, text),
+                            h('Tag', {
+                                props: {
+                                    type: 'text',
+                                    color: 'red'
+                                }
+                            }, '广东 共11家'),
                             h('div', {
                                 attrs: {
 
                                 }
-                            }, '广东 共11家（深圳市森堡家俬有限公司 等）'),
+                            }, '深圳市森堡家俬有限公司等'),
+                            h('Tag', {
+                                props: {
+                                    type: 'text',
+                                    color: 'red'
+                                }
+                            }, '江西 共1家'),
                             h('div', {
                                 attrs: {
 
                                 }
-                            }, '江西 共1家 （赣州市华阳家具有限公司 等）')
+                            }, '赣州市华阳家具有限公司等')
                         ]);
                     }},
                 {title: '注册信息',
                     key: 'sy',
-                    width: '35%',
+                    width: '55%',
                     render: (h, params) => {
-                        return h('div', [
-                            h('Tag', {
-                                props: {
-                                    type: 'text',
-                                    color: 'green'
-                                }
-                            }, '注册资本：'),
-                            h('Tag', {
-                                props: {
-                                    type: 'text',
-                                    color: 'red'
-                                }
-                            }, '（人民币）5000万元'),
-                            h('div', {
-                                attrs: {
-                                    style: 'height: 0;border-bottom: 3px solid #dcdcdc;'
-                                }
-                            }),
-                            h('Tag', {
-                                props: {
-                                    type: 'text',
-                                    color: 'green'
-                                }
-                            }, '注册时间：'),
-                            h('Tag', {
-                                props: {
-                                    type: 'text',
-                                    color: 'red'
-                                }
-                            }, '2004-02-17'),
-                            h('div', {
-                                attrs: {
-                                    style: 'height: 0;border-bottom: 3px solid #dcdcdc;'
-                                }
-                            }),
-                            h('Tag', {
-                                props: {
-                                    type: 'text',
-                                    color: 'green'
-                                }
-                            }, '公司状态：'),
-                            h('Tag', {
-                                props: {
-                                    type: 'text',
-                                    color: 'red'
-                                }
-                            }, '存续（在营、开业、在册）')
-                        ]);
-                    }
-                },
-                {title: '股权结构图',
-                    key: 'zhi',
-                    render: (h, params) => {
-                        return h('div', [
-                            h('div', [
-                                h('Tag', {
-                                    props: {
-                                        type: 'text',
-                                        color: 'black'
-                                    }
-                                }, '深圳市森堡家俬有限公司')
-                            ]),
-                            h('p', {
-                                attrs: {
-                                    style: 'padding:2px'
-                                }
-                            }),
-                            h('Tag', {
-                                props: {
-                                    type: 'text',
-                                    color: 'green'
-                                }
-                            }, '郭向阳（工商股东）：'),
-                            h('Tag', {
-                                props: {
-                                    type: 'text',
-                                    color: 'red'
-                                }
-                            }, '股比：90%  认购金额：4500.00万元'),
-                            h('div', {
-                                attrs: {
-                                    style: 'height: 0;border-bottom: 3px solid #dcdcdc;'
-                                }
-                            }),
-                            h('Tag', {
-                                props: {
-                                    type: 'text',
-                                    color: 'green'
-                                }
-                            }, '郭向伟（工商股东）：'),
-                            h('Tag', {
-                                props: {
-                                    type: 'text',
-                                    color: 'red'
-                                }
-                            }, '股比：5%  认购金额：250.00万元'),
-                            h('div', {
-                                attrs: {
-                                    style: 'height: 0;border-bottom: 3px solid #dcdcdc;'
-                                }
-                            }),
-                            h('Tag', {
-                                props: {
-                                    type: 'text',
-                                    color: 'green'
-                                }
-                            }, '郭向亮（工商股东）：'),
-                            h('Tag', {
-                                props: {
-                                    type: 'text',
-                                    color: 'red'
-                                }
-                            }, '股比：5%  认购金额：250.00万元')
-                        ]);
+                        return h(pie, {
+                            props: {
+
+                            }
+                        });
                     }
                 }
             ],
             columnsInfo: [
                 {
                     title: 'k1',
-                    key: 'k1'
+                    key: 'k1',
+                    className: 'demo-table-info-column'
                 },
                 {
                     title: 'v1',
@@ -208,7 +126,8 @@ export default {
                 },
                 {
                     title: 'k2',
-                    key: 'k2'
+                    key: 'k2',
+                    className: 'demo-table-info-column'
                 },
                 {
                     title: 'v2',
@@ -251,7 +170,8 @@ export default {
                 {
                     title: 'k1',
                     width: '20%',
-                    key: 'k1'
+                    key: 'k1',
+                    className: 'demo-table-info-column'
                 },
                 {
                     title: 'v1',
@@ -266,25 +186,6 @@ export default {
                 {
                     k1: '经营范围',
                     v1: '兴办实业（具体项目另行申报）；国内商业及物资供销业（不含国家专营、专控、专卖商品）；进出口业务。；家俬生产、销售（不含国家限制项目）；普通货运。；'
-                }
-            ],
-            columnsPerson: [
-                {
-                    title: 'k',
-                    key: 'k',
-                    align: 'center',
-                    render: (h, params) => {
-                        return h('div', {
-                            attrs: {
-                                style: 'font-size:large;color:red'
-                            }
-                        }, '郭向阳-相关公司（法人:4家  股东:12家  高管:10家）');
-                    }
-                }
-            ],
-            dataPerson: [
-                {
-                    k: '郭向阳'
                 }
             ],
             columnsCompany: [
@@ -605,28 +506,20 @@ export default {
             let data = [];
             for (let i = 0; i < 1; i++) {
                 data.push({
-                });
-            }
-            return data;
-        },
-        mockTableData2 () {
-            let data = [];
-            for (let i = 0; i < 2; i++) {
-                data.push({
-                    sy: i,
-                    sy1: i,
-                    sy2: i,
-                    zhi: i
+                    lx: 1,
+                    sy: 2
                 });
             }
             return data;
         },
         rowClassName (row, index) {
-            if (index === 1) {
-                return 'demo-table-info-row';
-            } else if (index === 3) {
-                return 'demo-table-error-row';
-            }
+            // if (row.role === '法人') {
+            //     return 'demo-table-info-row-red';
+            // } else if (row.role === '股东') {
+            //     return 'demo-table-info-row-yellow';
+            // } else if (row.role === '高管') {
+            //     return 'demo-table-info-row-green';
+            // }
             return '';
         }
     },
@@ -638,29 +531,5 @@ export default {
 };
 </script>
 <style scoped>
-.ivu-table .demo-table-info-row td{
-        background-color: #2db7f5;
-        color: #fff;
-}
-.ivu-table .demo-table-error-row td{
-    background-color: #ff6600;
-    color: #fff;
-}
-.ivu-table td.demo-table-info-column{
-    background-color: #2db7f5;
-    color: #fff;
-}
-.ivu-table .demo-table-info-cell-name {
-    background-color: #2db7f5;
-    color: #fff;
-}
-.ivu-table .demo-table-info-cell-age {
-    background-color: #ff6600;
-    color: #fff;
-}
-.ivu-table .demo-table-info-cell-address {
-    background-color: #187;
-    color: #fff;
-}
 </style>
 

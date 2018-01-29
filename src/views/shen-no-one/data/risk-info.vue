@@ -4,7 +4,15 @@
              <Table :show-header=false :border=true :columns="columnsLawName" :data="dataLawName"></Table>
              <Table :border=true :columns="columnsLaw" :data="LawList"></Table>
               <div style="float: right;">
-                <Page :total="count" :current="page" @on-change="changePage"></Page>
+                <Page :total="count" :current="page" :page-size="pageSize" show-total @on-change="changePage"></Page>
+            </div>
+             <p style="padding:10px"></p>
+         </Row>
+         <Row :gutter="5" class="margin-top-10">
+             <Table :show-header=false :border=true :columns="columnsPledgeName" :data="dataPledgeName"></Table>
+             <Table :border=true :columns="columnsPledge" :data="pledgeList"></Table>
+              <div style="float: right;">
+                <Page :total="count1" :current="page1" :page-size="pageSize1" show-total @on-change="changePage1"></Page>
             </div>
              <p style="padding:10px"></p>
          </Row>
@@ -27,7 +35,7 @@ export default {
                             h('Tag', {
                                 props: {
                                     type: 'text',
-                                    color: 'blue'
+                                    color: 'red'
                                 }
                             }, '18')
                         ]);
@@ -188,23 +196,104 @@ export default {
                     caseNo: '（2012）新商初字第379号'
                 }
             ],
-            count: '',
-            page: ''
+            count: Number,
+            page: Number,
+            pageSize: Number,
+            columnsPledgeName: [
+                {
+                    title: 'k',
+                    key: 'k',
+                    render: (h, params) => {
+                        return h('div', [
+                            h('div', {
+                                style: 'font-size:small;color:green'
+                            }, '动产抵押'),
+                            h('Tag', {
+                                props: {
+                                    type: 'text',
+                                    color: 'red'
+                                }
+                            }, '1')
+                        ]);
+                    }
+                }
+            ],
+            dataPledgeName: [
+                {
+                    k: '动产抵押'
+                }
+            ],
+            columnsPledge: [
+                {
+                    title: '登记日期',
+                    width: '10%',
+                    key: 'date'
+                },
+                {
+                    title: '登记号',
+                    key: 'no'
+                }, {
+                    title: '被担保债权类型',
+                    key: 'type'
+                }, {
+                    title: '被担保债权数额',
+                    key: 'amount'
+                }, {
+                    title: '登记机关',
+                    key: 'org'
+                }, {
+                    title: '状态',
+                    key: 'status'
+                }, {
+                    title: '备注',
+                    width: '20%',
+                    key: 'remark'
+                }
+            ],
+            pledgeList: [],
+            dataPledge: [
+                {
+                    date: '2015-07-15',
+                    no: '0755深圳20150602',
+                    type: '未公示',
+                    amount: '12000',
+                    org: '深圳市市场监督管理局',
+                    status: '有效',
+                    remark: '所报材料真实合法，一切责任由当事人自负'
+                }
+            ],
+            count1: Number,
+            page1: Number,
+            pageSize1: Number
         };
     },
     methods: {
-        getData () {
-            return this.dataLaw.slice(0, 9);
+        getData (start, end) {
+            return this.dataLaw.slice(start, end);
         },
-        changePage () {
-            console.log(this.current);
-            this.LawList = this.getData();
+        getData1 (start, end) {
+            return this.dataPledge.slice(start, end);
+        },
+        changePage (current) {
+            this.page = current;
+            this.LawList = this.getData((current - 1) * 5 + 0, (current * 5));
+        },
+        changePage1 (current) {
+            this.page1 = current;
+            this.pledgeList = this.getData1((current - 1) * 5 + 0, (current * 5));
         }
     },
     mounted () {
-        this.LawList = this.getData();
+        // 法律诉讼
+        this.LawList = this.getData(0, 5);
         this.count = 18;
         this.page = 1;
+        this.pageSize = 5;
+        // 地产抵押
+        this.pledgeList = this.getData1(0, 5);
+        this.count1 = 1;
+        this.page1 = 1;
+        this.pageSize1 = 5;
     }
 };
 </script>
