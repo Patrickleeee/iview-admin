@@ -34,7 +34,7 @@ export default {
                             }, '法律诉讼'),
                             h('Tag', {
                                 props: {
-                                    type: 'text',
+                                    type: 'border',
                                     color: 'red'
                                 }
                             }, '18')
@@ -196,9 +196,9 @@ export default {
                     caseNo: '（2012）新商初字第379号'
                 }
             ],
-            count: Number,
-            page: Number,
-            pageSize: Number,
+            count: 18,
+            page: 1,
+            pageSize: 5,
             columnsPledgeName: [
                 {
                     title: 'k',
@@ -210,7 +210,7 @@ export default {
                             }, '动产抵押'),
                             h('Tag', {
                                 props: {
-                                    type: 'text',
+                                    type: 'border',
                                     color: 'red'
                                 }
                             }, '1')
@@ -262,9 +262,9 @@ export default {
                     remark: '所报材料真实合法，一切责任由当事人自负'
                 }
             ],
-            count1: Number,
-            page1: Number,
-            pageSize1: Number
+            count1: 1,
+            page1: 1,
+            pageSize1: 5
         };
     },
     methods: {

@@ -13,7 +13,7 @@
             <Col :md="24" :lg="15" :style="{marginBottom: '10px'}">  
                 <Card>
                 <Table :show-header=false :border=true :columns="columnsInfo" :data="dataInfo"></Table>
-                <Table :show-header=false :border=true :columns="columnsInfo1" :data="dataInfo1" size="middle" ></Table>
+                <Table :show-header=false :border=true :columns="columnsInfo1" :data="dataInfo1"></Table>
                 </Card>
             </Col>
          </Row>
@@ -62,25 +62,25 @@ export default {
                             }),
                             h('Tag', {
                                 props: {
-                                    type: 'text',
+                                    type: 'border',
                                     color: color
                                 }
                             }, '本公司状态：'),
                             h('Tag', {
                                 props: {
-                                    type: 'text',
+                                    type: 'border',
                                     color: 'red'
                                 }
                             }, '存续(在营、开业、在册)'),
                             h('Tag', {
                                 props: {
-                                    type: 'text',
+                                    type: 'border',
                                     color: color
                                 }
                             }, text),
                             h('Tag', {
                                 props: {
-                                    type: 'text',
+                                    type: 'border',
                                     color: 'red'
                                 }
                             }, '广东 共11家'),
@@ -91,7 +91,7 @@ export default {
                             }, '深圳市森堡家俬有限公司等'),
                             h('Tag', {
                                 props: {
-                                    type: 'text',
+                                    type: 'border',
                                     color: 'red'
                                 }
                             }, '江西 共1家'),
@@ -258,7 +258,7 @@ export default {
 
                         return h('Tag', {
                             props: {
-                                type: 'text',
+                                type: 'border',
                                 color: color
                             }
                         }, row.status);

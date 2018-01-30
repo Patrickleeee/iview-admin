@@ -30,7 +30,7 @@ export default {
 
                         return h('Tag', {
                             props: {
-                                type: 'text',
+                                type: 'border',
                                 color: color
                             }
                         }, text);
@@ -82,7 +82,7 @@ export default {
 
                         return h('Tag', {
                             props: {
-                                type: 'text',
+                                type: 'border',
                                 color: color
                             }
                         }, text);
