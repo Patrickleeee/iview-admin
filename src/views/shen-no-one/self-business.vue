@@ -1,5 +1,5 @@
 <template lang="html">
-    <div class="self-tabs-style">
+    <div class="self-tabs-style" style="height:auto;">
         <Tabs value="name1" :animated="false">
             <TabPane label="总览" name="name1" icon="ios-star">
                 <div>
@@ -67,15 +67,7 @@ export default {
     position: absolute;
     text-align: center;
 }
-.self-tabs-style > .ivu-tabs{
-    height:280%
-}
-.self-tabs-style > .ivu-tabs > .ivu-tabs-content{
-    height:350%
-}
-.ivu-tabs > .ivu-tabs-content-animated{
-    height:350%
-}
+
 
 </style> 
 

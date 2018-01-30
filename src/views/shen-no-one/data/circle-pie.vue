@@ -1,14 +1,11 @@
 <template lang="html">
   <div class="dashboard">        
     <div class="flex-container column">
-        <div class="item one" id="circlePieContainer1" style="transform: translate(-10%,-12%) scale(0.85);"></div>
-        <div class="item two" id="circlePieContainer2" style="transform: translate(83%,-12%) scale(0.85);"></div>
-        <div class="item three" id="circlePieContainer3" style="transform: translate(175%,-12%) scale(0.85);"></div>
-    </div>
-    <div class="flex-container column">
-        <div class="item one" id="circlePieContainer4" style="transform: translate(-10%,80%) scale(0.85);"></div>
-        <div class="item two" id="circlePieContainer5" style="transform: translate(83%,80%) scale(0.85);"></div>
-        <div class="item three" id="circlePieContainer6" style="transform: translate(175%,80%) scale(0.85);"></div>
+        <div class="item one" id="circlePieContainer1" style="transform: translate(-25%,-12%) scale(0.85);"></div>
+        <div class="item one" id="circlePieContainer4" style="transform: translate(-25%,80%) scale(0.85);"></div>
+        <div class="item-table"style="transform: translate(80%,-5%) scale(0.9);">
+            <Table :border=true :columns="columns4" :data="data14" size="default"></Table>
+        </div>
     </div>
   </div>
 </template>
@@ -28,24 +25,6 @@ export default {
                 {value: 18871.8, name: '存货'}
             ],
             title1: ['流动资产', '年初余额'],
-            data2: [
-                {value: 3197.0, name: '固定资产'},
-                {value: 1364.4, name: '累计折旧'},
-                {value: 1832.6, name: '固定资产净值'},
-                {value: 59.1, name: '无形资产'},
-                {value: 222.9, name: '长摊待摊费用'}
-            ],
-            title2: ['非流动资产', '年初余额'],
-            data3: [
-                {value: 8635.3, name: '短期借款'},
-                {value: 5319.8, name: '应付票据'},
-                {value: 3309.6, name: '应付账款 '},
-                {value: 1858.6, name: '预收款项'},
-                {value: 472.6, name: '应付职工薪酬'},
-                {value: -1397.8, name: '应交税费'},
-                {value: 816.5, name: ' 其他应付款'}
-            ],
-            title3: ['流动负债', '年初余额'],
             data4: [
                 {value: 3071.2, name: '货币资金'},
                 {value: 3188.1, name: '应收账款'},
@@ -71,7 +50,91 @@ export default {
                 {value: -1514.9, name: '应交税费'},
                 {value: 618.6, name: ' 其他应付款'}
             ],
-            title6: ['流动负债', '期末余额']
+            title6: ['流动负债', '期末余额'],
+            columns4: [
+                {
+                    title: '条目',
+                    key: 'item'
+                },
+                {
+                    title: '年初余额（单位：元）',
+                    key: 'startAmount'
+                }, {
+                    title: '期末余额（单位：元）',
+                    key: 'endAmount'
+                }
+            ],
+            data14: [
+                {
+                    item: '货币资金',
+                    startAmount: '65844945.874117',
+                    endAmount: '30712638.38'
+                },
+                {
+                    item: '交易性金融资产',
+                    startAmount: '--',
+                    endAmount: '--'
+                },
+                {
+                    item: '应收票据',
+                    startAmount: '--',
+                    endAmount: '--'
+                },
+                {
+                    item: '应收账款',
+                    startAmount: '44920879.89',
+                    endAmount: '69000233.3522304'
+                },
+                {
+                    item: '预付款项',
+                    startAmount: '65697334.657764',
+                    endAmount: '27237497.6747676'
+                },
+                {
+                    item: '应收利息',
+                    startAmount: '--',
+                    endAmount: '--'
+                },
+                {
+                    item: '其他应收款',
+                    startAmount: '68818861.8622304',
+                    endAmount: '69000233.3522304'
+                },
+                {
+                    item: '存货',
+                    startAmount: '188718629.15794',
+                    endAmount: '144589746.463048'
+                },
+                {
+                    item: '一年内到期的非流动资产',
+                    startAmount: '--',
+                    endAmount: '--'
+                },
+                {
+                    item: '其他流动资产',
+                    startAmount: '--',
+                    endAmount: '--'
+                },
+                {
+                    item: '流动资产合计',
+                    startAmount: '434000651.442052',
+                    endAmount: '303421933.804906'
+                }
+            ],
+            data17: [
+                {item: '长期借款', startAmount: '--', endAmount: '--'},
+                {item: '长期应付款', startAmount: '--', endAmount: '--'},
+                {item: '递延所得税负债', startAmount: '--', endAmount: '--'},
+                {item: '其他非流动负债', startAmount: '--', endAmount: '--'},
+                {item: '非流动负债合计', startAmount: '--', endAmount: '--'}
+            ],
+            data18: [
+                {item: '实收资本（或股本）', startAmount: '50,000,000.00', endAmount: '50,000,000.00'},
+                {item: '资本公积', startAmount: '7,500,000.00', endAmount: '7,500,000.00'},
+                {item: '盈余公积', startAmount: '--', endAmount: '--'},
+                {item: '未分配利润', startAmount: '207,498,786.10', endAmount: '165,152,327.73'},
+                {item: '所有者权益（或股东权益）合计', startAmount: '264,998,786.10', endAmount: '222,652,327.73'}
+            ]
         };
     },
     methods: {
@@ -114,11 +177,11 @@ export default {
     },
     mounted () {
         this.drawBasePie1(this.data1, this.title1);
-        this.drawBasePie2(this.data2, this.title2);
-        this.drawBasePie3(this.data3, this.title3);
+        // this.drawBasePie2(this.data2, this.title2);
+        // this.drawBasePie3(this.data3, this.title3);
         this.drawBasePie4(this.data4, this.title4);
-        this.drawBasePie5(this.data5, this.title5);
-        this.drawBasePie6(this.data6, this.title6);
+        // this.drawBasePie5(this.data5, this.title5);
+        // this.drawBasePie6(this.data6, this.title6);
     }
 };
 </script>
@@ -127,7 +190,18 @@ export default {
 .item {
   padding: 0px;
   margin: 0px;
-  width: 37%;
+  width: 75%;
+  height: 300px;
+  position: absolute;
+  transform: scale(1);
+  text-align: left;
+  transition: all 0.8s;
+  background: rgba(32, 32, 35, 0.5);
+}
+.item-table {
+  padding: 0px;
+  margin: 0px;
+  width: 50%;
   height: 300px;
   position: absolute;
   transform: scale(1);

@@ -26,7 +26,7 @@
         <Row>
             <Col span="6">
                 <span class="expand-key">批准时间: </span>
-                <span class="expand-value">《{{ row.startDate }}》</span>
+                <span class="expand-value">{{ row.startDate }}</span>
             </Col>
             <Col span="6">
                 <span class="expand-key">有效期限: </span>
