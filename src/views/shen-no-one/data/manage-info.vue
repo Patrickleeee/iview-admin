@@ -1,5 +1,19 @@
 <template lang="html">
     <div>
+        <Collapse accordion >
+            <Panel name="1">
+                利润-2016年12月
+                <div slot="content">
+                    <Table :border=true :columns="columnsProfit" :data="dataProfit"></Table>
+                </div>
+            </Panel>
+        </Collapse>
+        <!-- <Row :gutter="5" class="margin-top-10">
+            <Card>
+                <p slot="title">利润-2016年12月</p>
+                <Table :border=true :columns="columnsProfit" :data="dataProfit"></Table>
+            </Card>
+        </Row> -->
         <Row :gutter="5" class="margin-top-10">
             <Col :md="24" :lg="24" :style="{marginBottom: '10px'}" style="height:600px;">
                 <Card style="height:600px">
@@ -273,7 +287,19 @@ export default {
             ],
             count3: 3,
             page3: 1,
-            pageSize3: 5
+            pageSize3: 5,
+            columnsProfit: [
+                {title: '项目', key: 'pro'},
+                {title: '本月累计金额（单位：元）', key: 'monthAmount'},
+                {title: '本年累计金额（单位：元）', key: 'yearAmount'}
+            ],
+            dataProfit: [
+                {pro: '主营业务收入', monthAmount: 58425528.54, yearAmount: 732071329.58},
+                {pro: '主营业务利润', monthAmount: 12148055.8, yearAmount: 117742045.97},
+                {pro: '营业利润', monthAmount: 4744936.4, yearAmount: 55718981.22},
+                {pro: '利润总额', monthAmount: 4744936.4, yearAmount: 57924054.78},
+                {pro: '净利润', monthAmount: 4701867.23, yearAmount: 57653541.63}
+            ]
         };
     },
     methods: {
