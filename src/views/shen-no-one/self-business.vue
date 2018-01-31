@@ -1,5 +1,5 @@
 <template lang="html">
-    <div class="self-tabs-style" style="height:auto;">
+    <div class="self-tabs-style" style="height:auto;padding-bottom: 1.5em;">
         <Tabs value="name1" :animated="false">
             <TabPane label="总览" name="name1" icon="ios-star">
                 <div>
