@@ -12,13 +12,13 @@
             <TabPane label="贷后" name="name3" icon="stats-bars">
                 <afterLoan></afterLoan>
             </TabPane>
-            <TabPane label="背景" name="name4" icon="stats-bars">
+            <TabPane label="背景" name="name4" icon="person">
                 <background></background>
             </TabPane>
-            <TabPane label="风险" name="name5" icon="stats-bars">
+            <TabPane label="风险" name="name5" icon="flash">
                 <riskInfo></riskInfo>
             </TabPane>
-            <TabPane label="经营" name="name6" icon="stats-bars">
+            <TabPane label="经营" name="name6" icon="monitor">
                 <manageInfo></manageInfo>
             </TabPane>
         </Tabs>

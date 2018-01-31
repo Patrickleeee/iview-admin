@@ -79,18 +79,18 @@ export const appRouter = [
             { path: 'majorEvent', title: '重大事件', name: 'shen-major-event', icon: 'flash', component: resolve => { require(['@/views/shen-no-one/major-event.vue'], resolve); } }
             // { path: 'index', title: '深一号', name: 'riskmap_index', component: resolve => { require(['@/views/business-market/risk-map.vue'], resolve); } }
         ]
-    },
-    {
-        path: '/order-management',
-        icon: 'eye',
-        title: '订单管理',
-        name: 'orderManagement',
-        component: Main,
-        children: [
-            { path: 'orderList', title: '订单列表', name: 'order-list', icon: 'table', component: resolve => { require(['@/views/order/order-list.vue'], resolve); } },
-            { path: 'systemAudit', title: '系统自动审核', name: 'system-audit', icon: 'images', component: resolve => { require(['@/views/test-component/tabs.vue'], resolve); } }
-        ]
     }
+    // {
+    //     path: '/order-management',
+    //     icon: 'eye',
+    //     title: '订单管理',
+    //     name: 'orderManagement',
+    //     component: Main,
+    //     children: [
+    //         { path: 'orderList', title: '订单列表', name: 'order-list', icon: 'table', component: resolve => { require(['@/views/order/order-list.vue'], resolve); } },
+    //         { path: 'systemAudit', title: '系统自动审核', name: 'system-audit', icon: 'images', component: resolve => { require(['@/views/test-component/tabs.vue'], resolve); } }
+    //     ]
+    // }
     // {
     //     path: '/risk-alarm-management',
     //     icon: 'ios-alarm',
