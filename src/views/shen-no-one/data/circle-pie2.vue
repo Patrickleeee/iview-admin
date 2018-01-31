@@ -54,17 +54,17 @@ export default {
                 },
                 {
                     item: '固定资产',
-                    startAmount: '31970870.8',
+                    startAmount: '31970870.80',
                     endAmount: '42458142.59'
                 },
                 {
                     item: '减：累计折旧',
-                    startAmount: '13644315.6800001',
+                    startAmount: '13644315.68',
                     endAmount: '18006056.64'
                 },
                 {
                     item: '固定资产净值',
-                    startAmount: '18326555.1199999',
+                    startAmount: '18326555.11',
                     endAmount: '24452085.95'
                 },
                 {
@@ -99,7 +99,7 @@ export default {
                 },
                 {
                     item: '非流动资产合计',
-                    startAmount: '21147321.5999999',
+                    startAmount: '21147321.59',
                     endAmount: '27815886.13'
                 }
             ]

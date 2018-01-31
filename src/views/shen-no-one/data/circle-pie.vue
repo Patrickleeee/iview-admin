@@ -67,7 +67,7 @@ export default {
             data14: [
                 {
                     item: '货币资金',
-                    startAmount: '65844945.874117',
+                    startAmount: '65844945.87',
                     endAmount: '30712638.38'
                 },
                 {
@@ -83,12 +83,12 @@ export default {
                 {
                     item: '应收账款',
                     startAmount: '44920879.89',
-                    endAmount: '69000233.3522304'
+                    endAmount: '69000233.35'
                 },
                 {
                     item: '预付款项',
-                    startAmount: '65697334.657764',
-                    endAmount: '27237497.6747676'
+                    startAmount: '65697334.65',
+                    endAmount: '27237497.67'
                 },
                 {
                     item: '应收利息',
@@ -97,13 +97,13 @@ export default {
                 },
                 {
                     item: '其他应收款',
-                    startAmount: '68818861.8622304',
-                    endAmount: '69000233.3522304'
+                    startAmount: '68818861.86',
+                    endAmount: '69000233.35'
                 },
                 {
                     item: '存货',
-                    startAmount: '188718629.15794',
-                    endAmount: '144589746.463048'
+                    startAmount: '188718629.15',
+                    endAmount: '144589746.46'
                 },
                 {
                     item: '一年内到期的非流动资产',
@@ -117,8 +117,8 @@ export default {
                 },
                 {
                     item: '流动资产合计',
-                    startAmount: '434000651.442052',
-                    endAmount: '303421933.804906'
+                    startAmount: '434000651.44',
+                    endAmount: '303421933.80'
                 }
             ],
             data17: [
