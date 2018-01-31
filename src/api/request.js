@@ -61,3 +61,11 @@ export function listProvinces () {
     //     method: 'get'
     // });
 }
+
+export function listOrders (myParams) {
+    return fetch({
+        url: '/syh/order',
+        method: 'post',
+        data: myParams
+    });
+}
