@@ -145,6 +145,7 @@
                 } else if (name === 'loginout') {
                     // 退出登录
                     this.$store.commit('logout', this);
+                    this.$store.commit('clearAllTags');// 关闭所有标签
                     this.$store.commit('clearOpenedSubmenu');
                     this.$router.push({
                         name: 'login'

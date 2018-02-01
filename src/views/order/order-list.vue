@@ -21,12 +21,16 @@
                     <Button type="primary" @click="handleSubmit('formItem')">查询</Button>
                     <Button type="ghost" @click="handleReset('formItem')" style="margin-left: 8px">重置</Button>
                 </FormItem>
+                <!-- <FormItem>
+                    <a id="hrefToExportTable" style="postion: absolute;left: -10px;top: -10px;width: 0px;height: 0px;"></a>
+                    <Button type="primary" size="large" @click="exportExcel"><Icon type="ios-download-outline"></Icon> 下载表格数据</Button>
+                </FormItem> -->
             </Form>
         </div>
-        <Table :data="tableData" :columns="tableColumns" stripe></Table>
+        <Table :data="tableData" :columns="tableColumns" :loading="loading" ref="table" stripe></Table>
         <div style="margin: 10px;overflow: hidden">
             <div style="float: right;">
-                <Page :total="total" :current="1" show-elevator @on-change="changePage"></Page>
+                <Page :total="total" :current="current" show-elevator @on-change="changePage"></Page>
             </div>
         </div>
     </div>
@@ -34,6 +38,7 @@
 </template>
 <script>
 import {listProvinces, listOrders} from '@/api/request';
+import table2excel from '@/libs/table2excel.js';
 export default {
     data () {
         return {
@@ -92,18 +97,27 @@ export default {
             total: 1000,
             current: 1,
             tableColumns: [
+                {title: '数据来源', key: 'sjly'},
                 {title: '单据编号', key: 'djbh'},
                 {title: '购货单位', key: 'ghdw'},
                 {title: '金额（单位：元）', key: 'je'},
                 {title: '审核人', key: 'shr'},
                 {title: '含税单价（单位：元）', key: 'hsdj'},
                 {title: '物流方式1', key: 'wlfs1'},
-                {title: '日期', key: 'rqString'}
+                {title: '日期',
+                    key: 'rqString',
+                    render: (h, params) => {
+                        return h('div', params.row.rqString);
+                    }}
             ],
-            tableData: []
+            tableData: [],
+            loading: true
         };
     },
     methods: {
+        exportExcel () {
+            table2excel.transform(this.$refs.table, 'hrefToExportTable', '订单明细');
+        },
         formatDate (date) {
             const y = date.getFullYear();
             let m = date.getMonth() + 1;
@@ -118,12 +132,12 @@ export default {
         },
         // 提交查询（发送后端请求）
         handleSubmit (name) {
-            console.log(this);
             this.$refs[name].validate((valid) => {
                 console.log(this.formItem);
                 if (valid) {
+                    // 条件查询时，将页码重置为1
+                    this.current = 1;
                     this.getOrders(this.current, this.formItem);
-                    this.$Message.success('Success!');
                 } else {
                     this.$Message.error('Fail!');
                 }
@@ -134,6 +148,7 @@ export default {
             this.$refs[name].resetFields();
         },
         getOrders (MyCurrent, formData) {
+            this.loading = true;
             new Promise((resolve, reject) => {
                 let myParmas = {
                     pageString: MyCurrent,
@@ -142,7 +157,6 @@ export default {
                 myParmas.ghdw = formData.ghdw;
                 myParmas.rq = formData.rq;
                 listOrders(myParmas).then(res => {
-                    console.log('orders:', res.data);
                     if (res.data.state === '0001') {
                         let result = res.data.data;
                         this.current = result.currentPage;
@@ -166,6 +180,14 @@ export default {
         //     });
         // });
         this.getOrders(this.current, this.formItem);
+    },
+    watch: {
+        // 监控列表数据，发生变化时启动“加载”
+        tableData: function () {
+            this.$nextTick(function () {
+                this.loading = false;
+            });
+        }
     }
 };
 </script>

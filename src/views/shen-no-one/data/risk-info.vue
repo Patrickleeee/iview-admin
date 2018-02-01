@@ -37,7 +37,13 @@ export default {
                                     type: 'border',
                                     color: 'red'
                                 }
-                            }, '18')
+                            }, '18'),
+                            h('Tag', {
+                                props: {
+                                    type: 'border',
+                                    color: 'green'
+                                }
+                            }, '数据来源：第三方')
                         ]);
                     }
                 }
@@ -213,7 +219,13 @@ export default {
                                     type: 'border',
                                     color: 'red'
                                 }
-                            }, '1')
+                            }, '1'),
+                            h('Tag', {
+                                props: {
+                                    type: 'border',
+                                    color: 'green'
+                                }
+                            }, '数据来源：第三方')
                         ]);
                     }
                 }

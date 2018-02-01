@@ -17,7 +17,7 @@
         <Row :gutter="5" class="margin-top-10">
             <Col :md="24" :lg="24" :style="{marginBottom: '10px'}" style="height:600px;">
                 <Card style="height:600px">
-                    <p slot="title">流动资产</p>
+                    <p slot="title">流动资产 <Tag color="green">数据来源：森堡家俬</Tag></p>
                     <my-circle-pie></my-circle-pie>
                 </Card>
              </Col>
@@ -25,7 +25,7 @@
          <Row :gutter="5" class="margin-top-10">
             <Col :md="24" :lg="24" :style="{marginBottom: '10px'}" style="height:600px;">
                 <Card style="height:600px">
-                    <p slot="title">非流动资产</p>
+                    <p slot="title">非流动资产 <Tag color="green">数据来源：森堡家俬</Tag></p></p>
                     <my-circle-pie2></my-circle-pie2>
                 </Card>
              </Col>
@@ -33,7 +33,7 @@
          <Row :gutter="5" class="margin-top-10">
             <Col :md="24" :lg="24" :style="{marginBottom: '10px'}" style="height:600px;">
                 <Card style="height:600px">
-                    <p slot="title">流动负债</p>
+                    <p slot="title">流动负债 <Tag color="green">数据来源：森堡家俬</Tag></p></p>
                     <my-circle-pie3></my-circle-pie3>
                 </Card>
              </Col>
@@ -41,34 +41,34 @@
          <Row :gutter="5" class="margin-top-10">
             <Col :md="24" :lg="24" :style="{marginBottom: '10px'}" style="height:600px;">
                 <Card style="height:600px">
-                    <p slot="title">所有者权益</p>
+                    <p slot="title">所有者权益 <Tag color="green">数据来源：森堡家俬</Tag></p></p>
                     <my-circle-pie4></my-circle-pie4>
                 </Card>
              </Col>
          </Row>
          <Row :gutter="5" class="margin-top-10">
-             <Table :show-header=false :border=true :columns="columnsName1" :data="dataName1"></Table>
-             <Table :border=true :columns="columns1" :data="dataList1"></Table>
-              <div style="float: right;">
+            <Table :show-header=false :border=true :columns="columnsName1" :data="dataName1"></Table>
+            <Table :border=true :columns="columns1" :data="dataList1"></Table>
+            <div style="float: right;">
                 <Page :total="count1" :current="page1" :page-size="pageSize1" show-total @on-change="changePage1"></Page>
             </div>
-             <p style="padding:10px"></p>
+            <p style="padding:10px"></p>
          </Row>
          <Row :gutter="5" class="margin-top-10">
-             <Table :show-header=false :border=true :columns="columnsName2" :data="dataName2"></Table>
-             <Table :border=true :columns="columns2" :data="dataList2"></Table>
-              <div style="float: right;">
+            <Table :show-header=false :border=true :columns="columnsName2" :data="dataName2"></Table>
+            <Table :border=true :columns="columns2" :data="dataList2"></Table>
+            <div style="float: right;">
                 <Page :total="count2" :current="page2" :page-size="pageSize2" show-total @on-change="changePage2"></Page>
             </div>
-             <p style="padding:10px"></p>
+            <p style="padding:10px"></p>
          </Row>
          <Row :gutter="5" class="margin-top-10">
-             <Table :show-header=false :border=true :columns="columnsName3" :data="dataName3"></Table>
-             <Table :border=true :columns="columns3" :data="dataList3"></Table>
-              <div style="float: right;">
+            <Table :show-header=false :border=true :columns="columnsName3" :data="dataName3"></Table>
+            <Table :border=true :columns="columns3" :data="dataList3"></Table>
+            <div style="float: right;">
                 <Page :total="count3" :current="page3" :page-size="pageSize3" show-total @on-change="changePage3"></Page>
             </div>
-             <p style="padding:10px"></p>
+            <p style="padding:10px"></p>
          </Row>
     </div>
     
@@ -105,7 +105,13 @@ export default {
                                     type: 'border',
                                     color: 'red'
                                 }
-                            }, '2')
+                            }, '2'),
+                            h('Tag', {
+                                props: {
+                                    type: 'border',
+                                    color: 'green'
+                                }
+                            }, '数据来源：第三方')
                         ]);
                     }
                 }
@@ -169,7 +175,13 @@ export default {
                                     type: 'border',
                                     color: 'red'
                                 }
-                            }, '1')
+                            }, '1'),
+                            h('Tag', {
+                                props: {
+                                    type: 'border',
+                                    color: 'green'
+                                }
+                            }, '数据来源：第三方')
                         ]);
                     }
                 }
@@ -237,7 +249,13 @@ export default {
                                     type: 'border',
                                     color: 'red'
                                 }
-                            }, '3')
+                            }, '3'),
+                            h('Tag', {
+                                props: {
+                                    type: 'border',
+                                    color: 'green'
+                                }
+                            }, '数据来源：第三方')
                         ]);
                     }
                 }
