@@ -1,22 +1,32 @@
 <template lang="html">
     <div class="self-tabs-style" style="height:auto;padding-bottom: 1.5em;">
         <Tabs value="name1" :animated="false">
-            <TabPane label="总览" name="name1" icon="ios-star">
-                <div>
-                    <pandect></pandect>
-                </div>
+            <TabPane label="工商注册信息" name="name1" icon="ios-star">
+                
             </TabPane>
-            <TabPane label="背景" name="name4" icon="person">
-                <background></background>
+            <TabPane label="财务信息" name="name2" icon="person">
+                
             </TabPane>
-            <TabPane label="贷后" name="name3" icon="stats-bars">
-                <afterLoan></afterLoan>
+            <TabPane label="央行征信信息" name="name3" icon="stats-bars">
+                
             </TabPane>
-            <TabPane label="订单" name="name2" icon="ios-list">
-                <order-list></order-list>
+            <TabPane label="经营信息" name="name4" icon="stats-bars">
+                
             </TabPane>
-            <TabPane label="财务" name="name5" icon="monitor">
-                <manageInfo></manageInfo>
+            <TabPane label="银行流水信息" name="name5" icon="stats-bars">
+                
+            </TabPane>
+            <TabPane label="法律合规信息" name="name6" icon="stats-bars">
+                
+            </TabPane>
+            <TabPane label="动产融资登记信息" name="name7" icon="stats-bars">
+                
+            </TabPane>
+            <TabPane label="舆情信息" name="name8" icon="stats-bars">
+                
+            </TabPane>
+            <TabPane label="其他信息" name="name9" icon="stats-bars">
+                
             </TabPane>
         </Tabs>
     </div>

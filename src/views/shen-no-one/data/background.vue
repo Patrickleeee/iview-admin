@@ -13,8 +13,9 @@
             </Card>
         </Col>
     </Row>
-    <Row :gutter="9" class="margin-top-10">
+    <Row :gutter="5" class="margin-top-10">
         <!-- <risk-table></risk-table> -->
+        <risk-info></risk-info>
     </Row>
 </div>
 </template>
@@ -24,6 +25,7 @@
 import riskTable from './risk-table.vue';
 import loanWatch from './loan-watch.vue';
 import baseInfoTable from './base-info.vue';
+import riskInfo from './risk-info.vue';
 export default {
     name: 'afterLoan',
     data () {
@@ -33,7 +35,8 @@ export default {
     components: {
         riskTable,
         loanWatch,
-        baseInfoTable
+        baseInfoTable,
+        riskInfo
     }
 };
 </script>

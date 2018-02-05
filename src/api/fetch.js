@@ -2,8 +2,8 @@ import axios from 'axios';
 // import store from '@/store';
 import Cookies from 'js-cookie';
 
-const BASE_URL = 'http://139.224.146.23:8088';
-// const BASE_URL = 'http://127.0.0.1:8088';
+// const BASE_URL = 'http://139.224.146.23:8088';
+const BASE_URL = 'http://127.0.0.1:8088';
 const LOGIN_URL = '/login';
 // 创建axios实例
 const service = axios.create({
