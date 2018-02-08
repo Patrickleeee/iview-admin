@@ -74,6 +74,7 @@ export const appRouter = [
         component: Main,
         children: [
             { path: 'selfBusiness', title: '核心工厂', name: 'shen-self-business', icon: 'disc', component: resolve => { require(['@/views/shen-no-one/self-business.vue'], resolve); } },
+            { path: 'factoryAnalyze', title: '工厂分析', name: 'shen-factory-analyze', icon: 'flash', component: resolve => { require(['@/views/shen-no-one/factory-analyze.vue'], resolve); } },
             { path: 'loanManagement', title: '借款管理', name: 'shen-loan-management', icon: 'flash', component: resolve => { require(['@/views/shen-no-one/loan-management.vue'], resolve); } },
             { path: 'infoManagement', title: '信息类别', name: 'shen-info-management', icon: 'information', component: resolve => { require(['@/views/shen-no-one/info-management.vue'], resolve); } },
             { path: 'downstreamBusiness', title: '下游客户', name: 'shen-downstream-business', icon: 'arrow-graph-down-right', component: resolve => { require(['@/views/shen-no-one/downstream-business.vue'], resolve); } },

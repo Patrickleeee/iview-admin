@@ -19,19 +19,19 @@
                                     <Row class-name="made-child-con-middle" type="flex" align="middle">
                                         <div>
                                             <b class="card-user-infor-name">深一号工厂</b>
-                                            <p href="http://www.sampofurniture.com">深圳市森堡家俬有限公司</p>
+                                            <p href="http://www.sampofurniture.com">法人:郭向阳</p>
                                         </div>
                                     </Row>
                                 </Col>
                             </Row>
                             <div class="line-gray"></div>
                             <Row class="margin-top-8">
-                                <Col span="8"><p class="notwrap">法人:</p></Col>
-                                <Col span="16" class="padding-left-8">郭向阳</Col>
-                            </Row>
-                            <Row class="margin-top-8">
-                                <Col span="8"><p class="notwrap">经营状态:</p></Col>
-                                <Col span="16" class="padding-left-8">存续(在营、开业、在册)</Col>
+                                <Col span="8">
+                                    <Tag checkable color="blue">风险状态:关注</Tag>
+                                </Col>
+                                <Col span="16" class="padding-left-8">
+                                    <Tag checkable color="blue">触发规则:3条</Tag>
+                                </Col>
                             </Row>
                         </Card>
                     </Col>
@@ -39,7 +39,7 @@
                         <Card>
                             <p slot="title" class="card-title">
                                 <Icon type="stats-bars"></Icon>
-                                贷后风险
+                                贷后风险（2017年12月规则触发情况）
                             </p>
                             <a type="text" slot="extra" @click.prevent="addNewToDoItem">
                                 <Icon type="more">more</Icon>
@@ -116,10 +116,11 @@
                 <Card>
                     <p slot="title" class="card-title">
                         <Icon type="android-map"></Icon>
-                        上周每日借款订单统计
+                        经销商风险状态统计
                     </p>
                     <div class="data-source-row">
-                        <visite-volume></visite-volume>
+                        <!-- <visite-volume></visite-volume> -->
+                        <pandect-loan-pie></pandect-loan-pie>
                     </div>
                 </Card>
             </Col>
@@ -161,6 +162,8 @@ import mapDataTable from '../../home/components/mapDataTable.vue';
 import toDoListItem from '../../home/components/toDoListItem.vue';
 import pandectOrder from './base/pandect-order.vue';
 import pandectRisk from './base/pandect-risk.vue';
+import pandectLoan from './base/pandect-loan.vue';
+import pandectLoanPie from './base/pandect-loan-pie.vue';
 
 export default {
     name: 'pandect',
@@ -174,7 +177,9 @@ export default {
         mapDataTable,
         toDoListItem,
         pandectOrder,
-        pandectRisk
+        pandectRisk,
+        pandectLoan,
+        pandectLoanPie
     },
     data () {
         return {

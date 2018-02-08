@@ -62,7 +62,7 @@ const setBarOption = () => {
                         color: '#3CB371'
                     }
                 },
-                data: [0, 1, 7, 8]
+                data: [1, 1, 7, 9]
             },
             {
                 name: '触发',
@@ -77,7 +77,7 @@ const setBarOption = () => {
                         color: '#FF6347'
                     }
                 },
-                data: [1, 1, 2, 1]
+                data: [0, 1, 2, 0]
             }
 
         ]

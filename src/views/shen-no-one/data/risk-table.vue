@@ -34,6 +34,52 @@ export default {
                 {'key': '借款人、借款企业贷款尚处于逾期状态', 'value': ''},
                 {'key': '企业提供虚假资料、或拒绝提供我司贷后管理、信用评估所需资料或数据信息', 'value': ''}
             ],
+            yzList: [
+                '≥ 60%',
+                '≥ 60%',
+                '≥ 60%',
+                '≤ 100万元',
+                '≥ 30%',
+                '≤ 100万元',
+                '≤ 200万元',
+                '≥ 20%',
+                '≤ 100万元',
+                '≥20%且<30%',
+                '≥50%且<70%',
+                '≤ 15%|≤ 3%',
+                '≥90天 | ≥100天',
+                '≥ 50%',
+                '≥ 30%',
+                '≥ 80% | <0.3 | < 0.5',
+                '≥ 50%',
+                '≤ 0',
+                '≥ 30%',
+                '',
+                ''
+            ],
+            dqzbList: [
+                '-145%',
+                '0%',
+                '6%',
+                '4012万元',
+                '0%',
+                '4729万元',
+                '14187万元',
+                '0%',
+                '3786万元',
+                '25%',
+                '32%',
+                '16% | 7%',
+                '18.8天 | 97.7天',
+                '0%',
+                '27%',
+                '32% | 1.4 | 2.8',
+                '0%',
+                '-631万元',
+                '40%',
+                '',
+                ''
+            ],
             // 每行数据
             tableData1: this.mockTableData1(),
             // 列名
@@ -63,52 +109,74 @@ export default {
                             }
                         }, text);
                     }},
+                {
+                    title: '阈值',
+                    key: 'yz',
+                    render: (h, params) => {
+                        return h('div', this.yzList[params.index]);
+                    }
+                },
                 {title: '当前指标值',
                     key: 'dqzb',
                     width: 160,
                     render: (h, params) => {
-                        const row = params.row;
-                        var text = '';
-                        var tagColor = '';
-                        var iconType = '';
-                        var iconColor = '';
-                        if (params.index === 19 || params.index === 20) {
-                            text = row.dqzb > 50 ? '是' : '否';
-                            tagColor = text === '是' ? 'green' : 'red';
-                            iconColor = text === '是' ? 'green' : 'red';
-                        } else {
-                            text = row.dqzb + this.formateUnit(this.tableData1[params.index].gllx);
-                            tagColor = row.dqzb > row.sqzb ? 'green' : row.dqzb === row.sqzb ? 'default' : 'red';
-                            iconType = row.dqzb > row.sqzb ? 'arrow-up-c' : row.dqzb === row.sqzb ? 'minus' : 'arrow-down-c';
-                            iconColor = row.dqzb > row.sqzb ? 'green' : row.dqzb === row.sqzb ? 'default' : 'red';
-                        }
+                        // const row = params.row;
+                        // var text = '';
+                        // var tagColor = '';
+                        // var iconType = '';
+                        // var iconColor = '';
+                        // if (params.index === 19 || params.index === 20) {
+                        //     text = row.dqzb > 50 ? '是' : '否';
+                        //     tagColor = text === '是' ? 'green' : 'red';
+                        //     iconColor = text === '是' ? 'green' : 'red';
+                        // } else {
+                        //     text = row.dqzb + this.formateUnit(this.tableData1[params.index].gllx);
+                        //     tagColor = row.dqzb > row.sqzb ? 'green' : row.dqzb === row.sqzb ? 'default' : 'red';
+                        //     iconType = row.dqzb > row.sqzb ? 'arrow-up-c' : row.dqzb === row.sqzb ? 'minus' : 'arrow-down-c';
+                        //     iconColor = row.dqzb > row.sqzb ? 'green' : row.dqzb === row.sqzb ? 'default' : 'red';
+                        // }
 
-                        return h('div', [
-                            h('Tag', {
-                                props: {
-                                    type: 'border',
-                                    color: tagColor
-                                }
-                            }, text),
-                            h('Icon', {
-                                props: {
-                                    type: iconType,
-                                    color: iconColor
-                                }
-                            })
-                        ]);
+                        // return h('div', [
+                        //     h('Tag', {
+                        //         props: {
+                        //             type: 'border',
+                        //             color: tagColor
+                        //         }
+                        //     }, text),
+                        //     h('Icon', {
+                        //         props: {
+                        //             type: iconType,
+                        //             color: iconColor
+                        //         }
+                        //     })
+                        // ]);
+                        return h('div', this.dqzbList[params.index]);
                     }
                 },
-                {title: '上期指标值',
-                    key: 'sqzb',
-                    width: 160,
-                    render: (h, params) => {
-                        if (params.index === 19 || params.index === 20) {
-                            return h('div', '否');
-                        }
+                // {title: '上期指标值',
+                //     key: 'sqzb',
+                //     width: 160,
+                //     render: (h, params) => {
+                //         if (params.index === 19 || params.index === 20) {
+                //             return h('div', '否');
+                //         }
 
-                        const row = params.row;
-                        return h('div', row.sqzb + this.formateUnit(this.tableData1[params.index].gllx));
+                //         const row = params.row;
+                //         return h('div', row.sqzb + this.formateUnit(this.tableData1[params.index].gllx));
+                //     }
+                // }
+                {
+                    title: '是否触发',
+                    key: 'sfcf',
+                    render: (h, params) => {
+                        const text = params.index === 9 ? '触发' : params.index === 17 ? '触发' : params.index === 18 ? '触发' : '未触发';
+                        const tagColor = params.index === 9 ? 'red' : params.index === 17 ? 'red' : params.index === 18 ? 'red' : 'green';
+                        return h('Tag', {
+                            props: {
+                                type: 'border',
+                                color: tagColor
+                            }
+                        }, text);
                     }
                 }
             ],
@@ -119,7 +187,7 @@ export default {
     methods: {
         mockTableData1 () {
             let data = [];
-            for (let i = 0; i < 20; i++) {
+            for (let i = 0; i < 21; i++) {
                 data.push({
                     gllx: i,
                     jcnr: i,
