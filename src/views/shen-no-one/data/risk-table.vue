@@ -1,6 +1,14 @@
 <template>
     <div>
-        <Table :data="tableData1" :columns="tableColumns1" stripe></Table>
+        <Card>
+            <p slot="title" class="card-title">
+                <Icon type="ios-pulse-strong"></Icon>
+                规则详情
+            </p>
+            <div>
+                <Table :data="tableData1" :columns="tableColumns1" stripe></Table>
+            </div>
+        </Card>
     </div>
     
 </template>
@@ -54,19 +62,19 @@ export default {
                 '≥ 50%',
                 '≤ 0',
                 '≥ 30%',
-                '',
-                ''
+                '是',
+                '是'
             ],
             dqzbList: [
-                '-145%',
+                '44%',
+                '85%',
+                '87%',
+                '4732万元',
+                '21%',
+                '3804.69万元',
+                '11414.06万元',
                 '0%',
-                '6%',
-                '4012万元',
-                '0%',
-                '4729万元',
-                '14187万元',
-                '0%',
-                '3786万元',
+                '2348万元',
                 '25%',
                 '32%',
                 '16% | 7%',
@@ -75,40 +83,42 @@ export default {
                 '27%',
                 '32% | 1.4 | 2.8',
                 '0%',
-                '-631万元',
-                '40%',
-                '',
-                ''
+                '1万元',
+                '0%',
+                '否',
+                '否'
             ],
             // 每行数据
             tableData1: this.mockTableData1(),
             // 列名
             tableColumns1: [
-                {title: '序号', align: 'center', type: 'index', width: 60},
+                {title: '序号', align: 'center', type: 'index', width: '5%'},
                 {title: '管理类型',
                     key: 'gllx',
+                    width: '10%',
                     render: (h, params) => {
                         return h('div', this.formateType(this.tableData1[params.index].gllx));
                     }},
                 {title: '监测内容',
                     key: 'jcnr',
+                    width: '45%',
                     render: (h, params) => {
                         return h('div', this.formateContent(this.tableData1[params.index].jcnr));
                     }},
-                {title: '规则属性',
-                    key: 'gzsx',
-                    render: (h, params) => {
-                        const row = params.row;
-                        const color = row.gzsx === 1 ? 'green' : row.gzsx === 2 ? 'yellow' : 'red';
-                        const text = row.gzsx === 1 ? '弱规则' : row.gzsx === 2 ? '中规则' : '强规则';
+                // {title: '规则属性',
+                //     key: 'gzsx',
+                //     render: (h, params) => {
+                //         const row = params.row;
+                //         const color = row.gzsx === 1 ? 'green' : row.gzsx === 2 ? 'yellow' : 'red';
+                //         const text = row.gzsx === 1 ? '弱规则' : row.gzsx === 2 ? '中规则' : '强规则';
 
-                        return h('Tag', {
-                            props: {
-                                type: 'dot',
-                                color: color
-                            }
-                        }, text);
-                    }},
+                //         return h('Tag', {
+                //             props: {
+                //                 type: 'dot',
+                //                 color: color
+                //             }
+                //         }, text);
+                //     }},
                 {
                     title: '阈值',
                     key: 'yz',
@@ -169,8 +179,8 @@ export default {
                     title: '是否触发',
                     key: 'sfcf',
                     render: (h, params) => {
-                        const text = params.index === 9 ? '触发' : params.index === 17 ? '触发' : params.index === 18 ? '触发' : '未触发';
-                        const tagColor = params.index === 9 ? 'red' : params.index === 17 ? 'red' : params.index === 18 ? 'red' : 'green';
+                        const text = params.index === 1 ? '触发' : params.index === 2 ? '触发' : '未触发';
+                        const tagColor = params.index === 1 ? 'red' : params.index === 2 ? 'red' : 'green';
                         return h('Tag', {
                             props: {
                                 type: 'border',
