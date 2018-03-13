@@ -69,3 +69,12 @@ export function listOrders (myParams) {
         data: myParams
     });
 }
+
+// 账户管理-查询
+export function userFind (myParams) {
+    return fetch({
+        url: '/services/SystemApp/actions/userFind/invoke',
+        method: 'post',
+        data: myParams
+    })
+}

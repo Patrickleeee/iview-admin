@@ -16,8 +16,10 @@ service.interceptors.request.use(config => {
     const authorization = Cookies.get('Authorization');
     // 非登录页面，添加请求头
     if (url !== LOGIN_URL) {
-        config.url = '/rest' + url;
+        config.url = url;
         config.headers.Authorization = authorization;
+        console.log("result: ", authorization);
+        console.log("config: ", config)
     }
     return config;
 }, error => {

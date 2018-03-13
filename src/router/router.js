@@ -95,167 +95,163 @@ export const appRouter = [
     //         { path: 'systemAudit', title: '系统自动审核', name: 'system-audit', icon: 'images', component: resolve => { require(['@/views/test-component/tabs.vue'], resolve); } }
     //     ]
     // }
-    // {
-    //     path: '/risk-alarm-management',
-    //     icon: 'ios-alarm',
-    //     title: '风险预警管理',
-    //     name: 'riskAlarmManagement',
-    //     component: Main,
-    //     children: [
-    //         { path: 'pie', title: '风险预警', name: 'pie', icon: 'ios-pie', component: resolve => { require(['@/views/test-component/card.vue'], resolve); } }
-    //     ]
-    // },
-
-    // {
-    //     path: '/credit-audit-management',
-    //     icon: 'eye',
-    //     title: '信用审核管理',
-    //     name: 'creditAuditManagement',
-    //     component: Main,
-    //     children: [
-    //         { path: 'manaualAudit', title: '人工信用审核', name: 'manaual-audit', icon: 'code-download', component: resolve => { require(['@/views/tables/exportable-table.vue'], resolve); } },
-    //         { path: 'systemAudit', title: '系统自动审核', name: 'system-audit', icon: 'images', component: resolve => { require(['@/views/tables/table-to-image.vue'], resolve); } }
-    //     ]
-    // },
-    // {
-    //     path: '/monitor-platform',
-    //     icon: 'monitor',
-    //     title: '监控平台',
-    //     name: 'monitorPlatform',
-    //     component: Main,
-    //     children: [
-    //         { path: 'policy', title: '决策流监控', name: 'policy', icon: 'compose', component: resolve => { require(['@/views/form/article-publish/article-publish.vue'], resolve); } }
-    //     ]
-    // },
-    // {
-    //     path: '/list-management',
-    //     icon: 'social-buffer',
-    //     title: '名单管理',
-    //     name: 'listManagement',
-    //     component: Main,
-    //     children: [
-    //         { path: 'whiteList', title: '白名单', name: 'white-table', icon: 'arrow-move', component: resolve => { require(['@/views/tables/dragable-table.vue'], resolve); } },
-    //         { path: 'greyList', title: '灰名单', name: 'grey-table', icon: 'edit', component: resolve => { require(['@/views/tables/editable-table.vue'], resolve); } },
-    //         { path: 'blackList', title: '黑名单', name: 'black-table', icon: 'search', component: resolve => { require(['@/views/tables/searchable-table.vue'], resolve); } },
-    //         { path: 'overdueList', title: '逾期名单', name: 'overdue-table', icon: 'code-download', component: resolve => { require(['@/views/tables/exportable-table.vue'], resolve); } }
-    //     ]
-    // },
-    // {
-    //     path: '/info-query',
-    //     icon: 'earth',
-    //     title: '信息查询管理',
-    //     name: 'infoQuery',
-    //     component: Main,
-    //     children: [
-    //         { path: 'userInfo', title: '用户信息', name: 'user-info-table', icon: 'edit', component: resolve => { require(['@/views/my-components/draggable-list/draggable-list.vue'], resolve); } },
-    //         { path: 'physicsInfo', title: '物理信息', name: 'physics-info-table', icon: 'search', component: resolve => { require(['@/views/tables/searchable-table.vue'], resolve); } },
-    //         { path: 'applyInfo', title: '申请信息', name: 'apply-info-table', icon: 'code-download', component: resolve => { require(['@/views/tables/exportable-table.vue'], resolve); } }
-    //     ]
-    // },
-    // {
-    //     path: '/system-settings',
-    //     icon: 'settings',
-    //     title: '系统设置',
-    //     name: 'systemSettings',
-    //     component: Main,
-    //     children: [
-    //         { path: 'user', title: '系统用户', name: 'grey-table', icon: 'edit', component: resolve => { require(['@/views/my-components/draggable-list/draggable-list.vue'], resolve); } },
-    //         { path: 'role', title: '系统角色', name: 'black-table', icon: 'search', component: resolve => { require(['@/views/tables/searchable-table.vue'], resolve); } },
-    //         { path: 'settings', title: '系统配置', name: 'overdue-table', icon: 'code-download', component: resolve => { require(['@/views/tables/exportable-table.vue'], resolve); } }
-    //     ]
-    // }
+    {
+        path: '/devices-monitor',
+        icon: 'settings',
+        title: '设备监控',
+        name: 'devicesMonitor',
+        component: Main,
+        children: [
+            { path: 'ac', title: '空压机监控', name: 'air-compressor', icon: 'edit', component: resolve => { require(['@/views/my-components/draggable-list/draggable-list.vue'], resolve); } },
+            { path: 'gss', title: '气源站监控', name: 'gas-supply-station', icon: 'code-download', component: resolve => { require(['@/views/tables/exportable-table.vue'], resolve); } }
+        ]
+    },
+    {
+        path: '/fault-slarm',
+        icon: 'settings',
+        title: '故障报警',
+        name: 'faultSlarm',
+        component: Main,
+        children: [
+            { path: 'fault', title: '故障报警', name: 'fault', icon: 'edit', component: resolve => { require(['@/views/my-components/draggable-list/draggable-list.vue'], resolve); } },
+        ]
+    },
+    {
+        path: '/maintain-slarm',
+        icon: 'settings',
+        title: '保养预警',
+        name: 'maintainSlarm',
+        component: Main,
+        children: [
+            { path: 'fault', title: '保养预警', name: 'fault', icon: 'edit', component: resolve => { require(['@/views/my-components/draggable-list/draggable-list.vue'], resolve); } },
+        ]
+    },
+    {
+        path: '/devices-management',
+        icon: 'settings',
+        title: '设备管理',
+        name: 'devicesManagement',
+        component: Main,
+        children: [
+            { path: 'monitor', title: '采集器配置', name: 'monitor', icon: 'edit', component: resolve => { require(['@/views/my-components/draggable-list/draggable-list.vue'], resolve); } },
+            { path: 'ac', title: '空压机管理', name: 'ac-management', icon: 'search', component: resolve => { require(['@/views/tables/searchable-table.vue'], resolve); } },
+            { path: 'gss', title: '气源站管理', name: 'gss-management', icon: 'code-download', component: resolve => { require(['@/views/tables/exportable-table.vue'], resolve); } }
+        ]
+    },
+    {
+        path: '/customer-management',
+        icon: 'settings',
+        title: '客户管理',
+        name: 'customerManagement',
+        component: Main,
+        children: [
+            { path: 'customer', title: '客户管理', name: 'customer-management', icon: 'edit', component: resolve => { require(['@/views/my-components/draggable-list/draggable-list.vue'], resolve); } },
+        ]
+    },
+    {
+        path: '/system-settings',
+        icon: 'settings',
+        title: '系统设置',
+        name: 'systemSettings',
+        component: Main,
+        children: [
+            { path: 'account-management', title: '账户管理', name: 'account-management', icon: 'edit', component: resolve => { require(['@/views/system-settings/account-management.vue'], resolve); } },
+            { path: 'login-record', title: '登录记录', name: 'lgoing-record', icon: 'search', component: resolve => { require(['@/views/tables/searchable-table.vue'], resolve); } },
+            { path: 'user-info', title: '个人信息', name: 'user-info', icon: 'code-download', component: resolve => { require(['@/views/tables/exportable-table.vue'], resolve); } }
+        ]
+    }
 
     // hide
-    {
-        path: '/international',
-        icon: 'earth',
-        title: {i18n: 'international'},
-        name: 'international',
-        component: Main,
-        hide: true,
-        children: [
-            { path: 'index', title: {i18n: 'international'}, name: 'international_index', component: resolve => { require(['@/views/international/international.vue'], resolve); } }
-        ]
-    },
-    {
-        path: '/component',
-        icon: 'social-buffer',
-        name: 'component',
-        title: '组件',
-        component: Main,
-        hide: true,
-        children: [
-            {
-                path: 'text-editor',
-                icon: 'compose',
-                name: 'text-editor',
-                title: '富文本编辑器',
-                component: resolve => { require(['@/views/my-components/text-editor/text-editor.vue'], resolve); }
-            },
-            {
-                path: 'md-editor',
-                icon: 'pound',
-                name: 'md-editor',
-                title: 'Markdown编辑器',
-                component: resolve => { require(['@/views/my-components/markdown-editor/markdown-editor.vue'], resolve); }
-            },
-            {
-                path: 'image-editor',
-                icon: 'crop',
-                name: 'image-editor',
-                title: '图片预览编辑',
-                component: resolve => { require(['@/views/my-components/image-editor/image-editor.vue'], resolve); }
-            },
-            {
-                path: 'draggable-list',
-                icon: 'arrow-move',
-                name: 'draggable-list',
-                title: '可拖拽列表',
-                component: resolve => { require(['@/views/my-components/draggable-list/draggable-list.vue'], resolve); }
-            },
-            {
-                path: 'area-linkage',
-                icon: 'ios-more',
-                name: 'area-linkage',
-                title: '城市级联',
-                component: resolve => { require(['@/views/my-components/area-linkage/area-linkage.vue'], resolve); }
-            },
-            {
-                path: 'file-upload',
-                icon: 'android-upload',
-                name: 'file-upload',
-                title: '文件上传',
-                component: resolve => { require(['@/views/my-components/file-upload/file-upload.vue'], resolve); }
-            },
-            {
-                path: 'count-to',
-                icon: 'arrow-graph-up-right',
-                name: 'count-to',
-                title: '数字渐变',
-                component: resolve => { require(['@/views/my-components/count-to/count-to.vue'], resolve); }
-            }
-            // {
-            //     path: 'clipboard-page',
-            //     icon: 'clipboard',
-            //     name: 'clipboard-page',
-            //     title: '一键复制',
-            //     component: resolve => { require(['@/views/my-components/clipboard/clipboard.vue'], resolve); }
-            // }
-        ]
-    },
-    {
-        path: '/form',
-        icon: 'android-checkbox',
-        name: 'form',
-        title: '表单编辑',
-        component: Main,
-        hide: true,
-        children: [
-            { path: 'artical-publish', title: '文章发布', name: 'artical-publish', icon: 'compose', component: resolve => { require(['@/views/form/article-publish/article-publish.vue'], resolve); } },
-            { path: 'workflow', title: '工作流', name: 'workflow', icon: 'arrow-swap', component: resolve => { require(['@/views/form/work-flow/work-flow.vue'], resolve); } }
+    // {
+    //     path: '/international',
+    //     icon: 'earth',
+    //     title: {i18n: 'international'},
+    //     name: 'international',
+    //     component: Main,
+    //     hide: true,
+    //     children: [
+    //         { path: 'index', title: {i18n: 'international'}, name: 'international_index', component: resolve => { require(['@/views/international/international.vue'], resolve); } }
+    //     ]
+    // },
+    // {
+    //     path: '/component',
+    //     icon: 'social-buffer',
+    //     name: 'component',
+    //     title: '组件',
+    //     component: Main,
+    //     hide: true,
+    //     children: [
+    //         {
+    //             path: 'text-editor',
+    //             icon: 'compose',
+    //             name: 'text-editor',
+    //             title: '富文本编辑器',
+    //             component: resolve => { require(['@/views/my-components/text-editor/text-editor.vue'], resolve); }
+    //         },
+    //         {
+    //             path: 'md-editor',
+    //             icon: 'pound',
+    //             name: 'md-editor',
+    //             title: 'Markdown编辑器',
+    //             component: resolve => { require(['@/views/my-components/markdown-editor/markdown-editor.vue'], resolve); }
+    //         },
+    //         {
+    //             path: 'image-editor',
+    //             icon: 'crop',
+    //             name: 'image-editor',
+    //             title: '图片预览编辑',
+    //             component: resolve => { require(['@/views/my-components/image-editor/image-editor.vue'], resolve); }
+    //         },
+    //         {
+    //             path: 'draggable-list',
+    //             icon: 'arrow-move',
+    //             name: 'draggable-list',
+    //             title: '可拖拽列表',
+    //             component: resolve => { require(['@/views/my-components/draggable-list/draggable-list.vue'], resolve); }
+    //         },
+    //         {
+    //             path: 'area-linkage',
+    //             icon: 'ios-more',
+    //             name: 'area-linkage',
+    //             title: '城市级联',
+    //             component: resolve => { require(['@/views/my-components/area-linkage/area-linkage.vue'], resolve); }
+    //         },
+    //         {
+    //             path: 'file-upload',
+    //             icon: 'android-upload',
+    //             name: 'file-upload',
+    //             title: '文件上传',
+    //             component: resolve => { require(['@/views/my-components/file-upload/file-upload.vue'], resolve); }
+    //         },
+    //         {
+    //             path: 'count-to',
+    //             icon: 'arrow-graph-up-right',
+    //             name: 'count-to',
+    //             title: '数字渐变',
+    //             component: resolve => { require(['@/views/my-components/count-to/count-to.vue'], resolve); }
+    //         }
+    //         // {
+    //         //     path: 'clipboard-page',
+    //         //     icon: 'clipboard',
+    //         //     name: 'clipboard-page',
+    //         //     title: '一键复制',
+    //         //     component: resolve => { require(['@/views/my-components/clipboard/clipboard.vue'], resolve); }
+    //         // }
+    //     ]
+    // },
+    // {
+    //     path: '/form',
+    //     icon: 'android-checkbox',
+    //     name: 'form',
+    //     title: '表单编辑',
+    //     component: Main,
+    //     hide: true,
+    //     children: [
+    //         { path: 'artical-publish', title: '文章发布', name: 'artical-publish', icon: 'compose', component: resolve => { require(['@/views/form/article-publish/article-publish.vue'], resolve); } },
+    //         { path: 'workflow', title: '工作流', name: 'workflow', icon: 'arrow-swap', component: resolve => { require(['@/views/form/work-flow/work-flow.vue'], resolve); } }
 
-        ]
-    },
+    //     ]
+    // },
     // {
     //     path: '/charts',
     //     icon: 'ios-analytics',
@@ -268,44 +264,44 @@ export const appRouter = [
 
     //     ]
     // },
-    {
-        path: '/tables',
-        icon: 'ios-grid-view',
-        name: 'tables',
-        title: '表格',
-        component: Main,
-        hide: true,
-        children: [
-            { path: 'dragableTable', title: '可拖拽排序', name: 'dragable-table', icon: 'arrow-move', component: resolve => { require(['@/views/tables/dragable-table.vue'], resolve); } },
-            { path: 'editableTable', title: '可编辑表格', name: 'editable-table', icon: 'edit', component: resolve => { require(['@/views/tables/editable-table.vue'], resolve); } },
-            { path: 'searchableTable', title: '可搜索表格', name: 'searchable-table', icon: 'search', component: resolve => { require(['@/views/tables/searchable-table.vue'], resolve); } },
-            { path: 'exportableTable', title: '表格导出数据', name: 'exportable-table', icon: 'code-download', component: resolve => { require(['@/views/tables/exportable-table.vue'], resolve); } },
-            { path: 'table2image', title: '表格转图片', name: 'table-to-image', icon: 'images', component: resolve => { require(['@/views/tables/table-to-image.vue'], resolve); } }
-        ]
-    },
-    {
-        path: '/advanced-router',
-        icon: 'ios-infinite',
-        name: 'advanced-router',
-        title: '高级路由',
-        component: Main,
-        hide: true,
-        children: [
-            { path: 'mutative-router', title: '动态路由', name: 'mutative-router', icon: 'link', component: resolve => { require(['@/views/advanced-router/mutative-router.vue'], resolve); } },
-            { path: 'argument-page', title: '带参页面', name: 'argument-page', icon: 'android-send', component: resolve => { require(['@/views/advanced-router/argument-page.vue'], resolve); } }
-        ]
-    },
-    {
-        path: '/error-page',
-        icon: 'android-sad',
-        title: '错误页面',
-        name: 'errorpage',
-        component: Main,
-        hide: true,
-        children: [
-            { path: 'index', title: '错误页面', name: 'errorpage_index', component: resolve => { require(['@/views/error-page/error-page.vue'], resolve); } }
-        ]
-    }
+    // {
+    //     path: '/tables',
+    //     icon: 'ios-grid-view',
+    //     name: 'tables',
+    //     title: '表格',
+    //     component: Main,
+    //     hide: true,
+    //     children: [
+    //         { path: 'dragableTable', title: '可拖拽排序', name: 'dragable-table', icon: 'arrow-move', component: resolve => { require(['@/views/tables/dragable-table.vue'], resolve); } },
+    //         { path: 'editableTable', title: '可编辑表格', name: 'editable-table', icon: 'edit', component: resolve => { require(['@/views/tables/editable-table.vue'], resolve); } },
+    //         { path: 'searchableTable', title: '可搜索表格', name: 'searchable-table', icon: 'search', component: resolve => { require(['@/views/tables/searchable-table.vue'], resolve); } },
+    //         { path: 'exportableTable', title: '表格导出数据', name: 'exportable-table', icon: 'code-download', component: resolve => { require(['@/views/tables/exportable-table.vue'], resolve); } },
+    //         { path: 'table2image', title: '表格转图片', name: 'table-to-image', icon: 'images', component: resolve => { require(['@/views/tables/table-to-image.vue'], resolve); } }
+    //     ]
+    // },
+    // {
+    //     path: '/advanced-router',
+    //     icon: 'ios-infinite',
+    //     name: 'advanced-router',
+    //     title: '高级路由',
+    //     component: Main,
+    //     hide: true,
+    //     children: [
+    //         { path: 'mutative-router', title: '动态路由', name: 'mutative-router', icon: 'link', component: resolve => { require(['@/views/advanced-router/mutative-router.vue'], resolve); } },
+    //         { path: 'argument-page', title: '带参页面', name: 'argument-page', icon: 'android-send', component: resolve => { require(['@/views/advanced-router/argument-page.vue'], resolve); } }
+    //     ]
+    // },
+    // {
+    //     path: '/error-page',
+    //     icon: 'android-sad',
+    //     title: '错误页面',
+    //     name: 'errorpage',
+    //     component: Main,
+    //     hide: true,
+    //     children: [
+    //         { path: 'index', title: '错误页面', name: 'errorpage_index', component: resolve => { require(['@/views/error-page/error-page.vue'], resolve); } }
+    //     ]
+    // }
 
 ];
 
