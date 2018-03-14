@@ -9,6 +9,7 @@
                     <Input v-model="formItem.realName" placeholder="姓名"></Input>
                 </FormItem>
                 <FormItem>
+                    <Button type ="warning" @click="newAccount()">新增账户</Button>
                     <Button type="primary" @click="handleSubmit('formItem')">查询</Button>
                     <Button type="ghost" @click="handleReset('formItem')" style="margin-left: 8px">重置</Button>
                 </FormItem>
@@ -25,6 +26,7 @@
 </template>
 <script>
 import {userFind} from '@/api/request';
+import util from '@/libs/util.js';
 export default {
     data () {
         return {
@@ -51,7 +53,14 @@ export default {
                 {title: '职位', key: 'title'},
                 {title: '角色', key: 'roleName'},
                 {title: '创建时间', key: 'createTime'},
-                {title: '更新时间', key: 'updateTime'}
+                {title: '更新时间', key: 'updateTime'},
+                {
+                    title: '操作',
+                    width: 200,
+                    align: 'center',
+                    key: 'handle',
+                    handle: ['edit', 'delete']
+                }
             ],
             tableData: [],
             loading: true
@@ -99,6 +108,12 @@ export default {
                 }).catch(error => {
                     reject(error);
                 });
+            });
+        },
+        newAccount (){
+            util.openNewPage(this, 'new-account');
+            this.$router.push({
+                name: 'new-account'
             });
         }
     },

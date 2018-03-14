@@ -78,3 +78,21 @@ export function userFind (myParams) {
         data: myParams
     })
 }
+
+// 账户管理-新增账户
+export function userAdd () {
+    return fetch({
+        url: '/services/SystemApp/actions/userAdd/invoke',
+        method: 'post',
+        data: myParams
+    })
+}
+
+// 账户管理-新增账户-角色枚举
+export function userAddOfRole () {
+    return fetch({
+        url: 'services/SystemApp/actions/userAddOfRole/invoke',
+        method: 'post',
+        data: {}
+    })
+}
