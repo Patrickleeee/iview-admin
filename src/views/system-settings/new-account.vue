@@ -27,7 +27,7 @@
                             </FormItem>
                         </Col>
                     </Row>
-                    <Row :gutter="5" class="margin-top-10">
+                    <Row :gutter="5" class="margin-top-1">
                         <Col :md="24" :lg="12" :style="{marginBottom: '10px'}">
                             <FormItem label="姓名" prop="realName" >
                                 <div style="display:inline-block;width:300px;">
@@ -43,7 +43,7 @@
                             </FormItem>
                         </Col>
                     </Row>
-                    <Row :gutter="5" class="margin-top-10">
+                    <Row :gutter="5" class="margin-top-1">
                         <Col :md="24" :lg="12" :style="{marginBottom: '10px'}">
                             <FormItem label="职位" prop="title" >
                                 <div style="display:inline-block;width:300px;">
@@ -59,7 +59,7 @@
                             </FormItem>
                         </Col>
                     </Row>
-                    <Row :gutter="5" class="margin-top-10">
+                    <Row :gutter="5" class="margin-top-1">
                         <Col :md="24" :lg="12" :style="{marginBottom: '10px'}">
                             <FormItem label="角色" prop="role" >
                                 <div style="display:inline-block;width:300px;">
@@ -70,7 +70,7 @@
                             </FormItem>
                         </Col>
                     </Row>
-                    <Row :gutter="5" class="margin-top-10">
+                    <Row :gutter="5" class="margin-top-11">
                         <Col :md="24" :lg="12" :style="{marginBottom: '10px'}">
                             <FormItem label="登录密码" prop="password" >
                                 <div style="display:inline-block;width:300px;">
@@ -79,7 +79,7 @@
                             </FormItem>
                         </Col>
                     </Row>
-                    <Row :gutter="5" class="margin-top-10">
+                    <Row :gutter="5" class="margin-top-1">
                         <Col :md="24" :lg="12" :style="{marginBottom: '10px'}">
                             <FormItem label="确认登录密码" prop="repassword" >
                                 <div style="display:inline-block;width:300px;">
@@ -130,7 +130,7 @@ export default {
                 password: '',
                 repassword: ''
             },
-            rolesList: [{}],
+            roleList: [],
             save_loading: false,
             // 账户信息，校验规则
             inforValidate: {
@@ -175,22 +175,37 @@ export default {
         saveEdit () {
             this.$refs['userForm'].validate((valid) => {
                 if (valid) {
-                    // todo 调用保存接口
+                    // 调用保存接口
                     this.save_loading = true;
-                    setTimeout(() => {
-                        this.$Message.success('保存成功');
-                        this.save_loading = false;
-                    }, 1000);
-                    this.cancelEditUserInfor();
+                    // 入参处理
+                    let params = this.userForm;
+                    delete params.repassword;
+                    console.log('params:', this.userForm)
+                    new Promise((resolve, reject) => {
+                        userAdd(this.userForm).then(res => {
+                            if(res.data.code === '200'){
+                                this.$Message.success(res.data.message);
+                                this.save_loading = false;
+                                // 关闭新增页面
+                                this.cancelEditUserInfor();
+                                return;
+                            }
+                            this.$Message.error(res.data.message);
+                            return;
+                            resolve();
+                        }).catch(error => {
+                            reject(error);
+                        });
+                    });
                 }
             });
         },
         // 编辑时，初始化值
         init () {
-            this.userForm.userName = 'homefax';
+            this.userForm.userName = 'witium';
             this.userForm.mobile = '18888888888';
             this.userForm.realName = 'test';
-            this.userForm.department = 'Homefax';
+            this.userForm.department = 'ta';
             this.userForm.title = '平台部';
             this.userForm.email = 'patrickleee@foxmail.com';
             this.userForm.role = '1';
@@ -202,7 +217,12 @@ export default {
         // 初始化角色select
         new Promise((resolve, reject) => {
             userAddOfRole().then(res => {
-                console.log('roleList:', res);
+                let roles = res.data;
+                // 非标准json数据，预先处理
+                for(var i in roles){
+                    this.roleList.push({value: i, label: roles[i]})
+                }
+                console.log('roleList:', this.roleList)
                 resolve();
             }).catch(error => {
                 reject(error);

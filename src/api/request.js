@@ -80,7 +80,7 @@ export function userFind (myParams) {
 }
 
 // 账户管理-新增账户
-export function userAdd () {
+export function userAdd (myParams) {
     return fetch({
         url: '/services/SystemApp/actions/userAdd/invoke',
         method: 'post',
