@@ -67,90 +67,60 @@ export const otherRouter = {
 
 // 作为Main组件的子页面展示并且在左侧菜单显示的路由写在appRouter里
 export const appRouter = [
-    // {
-    //     path: '/shen-no-one',
-    //     icon: 'ionic',
-    //     title: '深一号',
-    //     name: 'shenNoOne',
-    //     component: Main,
-    //     children: [
-    //         { path: 'selfBusiness', title: '核心工厂', name: 'shen-self-business', icon: 'disc', component: resolve => { require(['@/views/shen-no-one/self-business.vue'], resolve); } },
-    //         { path: 'factoryAnalyze', title: '工厂分析', name: 'shen-factory-analyze', icon: 'flash', component: resolve => { require(['@/views/shen-no-one/factory-analyze.vue'], resolve); } },
-    //         { path: 'loanManagement', title: '借款管理', name: 'shen-loan-management', icon: 'flash', component: resolve => { require(['@/views/shen-no-one/loan-management.vue'], resolve); } },
-    //         { path: 'infoManagement', title: '信息类别', name: 'shen-info-management', icon: 'information', component: resolve => { require(['@/views/shen-no-one/info-management.vue'], resolve); } },
-    //         { path: 'downstreamBusiness', title: '下游客户', name: 'shen-downstream-business', icon: 'arrow-graph-down-right', component: resolve => { require(['@/views/shen-no-one/downstream-business.vue'], resolve); } },
-    //         { path: 'upstreamBusiness', title: '上游客户', name: 'shen-upstream-business', icon: 'arrow-graph-up-right', component: resolve => { require(['@/views/shen-no-one/upstream-business.vue'], resolve); } },
-    //         { path: 'majorEvent', title: '重大事件', name: 'shen-major-event', icon: 'flash', component: resolve => { require(['@/views/shen-no-one/major-event.vue'], resolve); } }
-
-    //         // { path: 'index', title: '深一号', name: 'riskmap_index', component: resolve => { require(['@/views/business-market/risk-map.vue'], resolve); } }
-    //     ]
-    // }
-    // {
-    //     path: '/order-management',
-    //     icon: 'eye',
-    //     title: '订单管理',
-    //     name: 'orderManagement',
-    //     component: Main,
-    //     children: [
-    //         { path: 'orderList', title: '订单列表', name: 'order-list', icon: 'table', component: resolve => { require(['@/views/order/order-list.vue'], resolve); } },
-    //         { path: 'systemAudit', title: '系统自动审核', name: 'system-audit', icon: 'images', component: resolve => { require(['@/views/test-component/tabs.vue'], resolve); } }
-    //     ]
-    // }
-
     // aircompressor 
-    // {
-    //     path: '/devices-monitor',
-    //     icon: 'settings',
-    //     title: '设备监控',
-    //     name: 'devicesMonitor',
-    //     component: Main,
-    //     children: [
-    //         { path: 'ac', title: '空压机监控', name: 'air-compressor', icon: 'edit', component: resolve => { require(['@/views/my-components/draggable-list/draggable-list.vue'], resolve); } },
-    //         { path: 'gss', title: '气源站监控', name: 'gas-supply-station', icon: 'code-download', component: resolve => { require(['@/views/tables/exportable-table.vue'], resolve); } }
-    //     ]
-    // },
-    // {
-    //     path: '/fault-slarm',
-    //     icon: 'settings',
-    //     title: '故障报警',
-    //     name: 'faultSlarm',
-    //     component: Main,
-    //     children: [
-    //         { path: 'fault', title: '故障报警', name: 'fault', icon: 'edit', component: resolve => { require(['@/views/my-components/draggable-list/draggable-list.vue'], resolve); } },
-    //     ]
-    // },
-    // {
-    //     path: '/maintain-slarm',
-    //     icon: 'settings',
-    //     title: '保养预警',
-    //     name: 'maintainSlarm',
-    //     component: Main,
-    //     children: [
-    //         { path: 'fault', title: '保养预警', name: 'fault', icon: 'edit', component: resolve => { require(['@/views/my-components/draggable-list/draggable-list.vue'], resolve); } },
-    //     ]
-    // },
-    // {
-    //     path: '/devices-management',
-    //     icon: 'settings',
-    //     title: '设备管理',
-    //     name: 'devicesManagement',
-    //     component: Main,
-    //     children: [
-    //         { path: 'monitor', title: '采集器配置', name: 'monitor', icon: 'edit', component: resolve => { require(['@/views/my-components/draggable-list/draggable-list.vue'], resolve); } },
-    //         { path: 'ac', title: '空压机管理', name: 'ac-management', icon: 'search', component: resolve => { require(['@/views/tables/searchable-table.vue'], resolve); } },
-    //         { path: 'gss', title: '气源站管理', name: 'gss-management', icon: 'code-download', component: resolve => { require(['@/views/tables/exportable-table.vue'], resolve); } }
-    //     ]
-    // },
-    // {
-    //     path: '/customer-management',
-    //     icon: 'settings',
-    //     title: '客户管理',
-    //     name: 'customerManagement',
-    //     component: Main,
-    //     children: [
-    //         { path: 'customer', title: '客户管理', name: 'customer-management', icon: 'edit', component: resolve => { require(['@/views/my-components/draggable-list/draggable-list.vue'], resolve); } },
-    //     ]
-    // },
+    {
+        path: '/devices-monitor',
+        icon: 'settings',
+        title: '设备监控',
+        name: 'devicesMonitor',
+        component: Main,
+        children: [
+            { path: 'ac', title: '空压机监控', name: 'air-compressor', icon: 'edit', component: resolve => { require(['@/views/my-components/draggable-list/draggable-list.vue'], resolve); } },
+            { path: 'gss', title: '气源站监控', name: 'gas-supply-station', icon: 'code-download', component: resolve => { require(['@/views/tables/exportable-table.vue'], resolve); } }
+        ]
+    },
+    {
+        path: '/fault-slarm',
+        icon: 'settings',
+        title: '故障报警',
+        name: 'faultSlarm',
+        component: Main,
+        children: [
+            { path: 'fault', title: '故障报警', name: 'fault', icon: 'edit', component: resolve => { require(['@/views/my-components/draggable-list/draggable-list.vue'], resolve); } },
+        ]
+    },
+    {
+        path: '/maintain-slarm',
+        icon: 'settings',
+        title: '保养预警',
+        name: 'maintainSlarm',
+        component: Main,
+        children: [
+            { path: 'fault', title: '保养预警', name: 'fault', icon: 'edit', component: resolve => { require(['@/views/my-components/draggable-list/draggable-list.vue'], resolve); } },
+        ]
+    },
+    {
+        path: '/devices-management',
+        icon: 'settings',
+        title: '设备管理',
+        name: 'devicesManagement',
+        component: Main,
+        children: [
+            { path: 'monitor', title: '采集器配置', name: 'monitor', icon: 'edit', component: resolve => { require(['@/views/my-components/draggable-list/draggable-list.vue'], resolve); } },
+            { path: 'ac', title: '空压机管理', name: 'ac-management', icon: 'search', component: resolve => { require(['@/views/tables/searchable-table.vue'], resolve); } },
+            { path: 'gss', title: '气源站管理', name: 'gss-management', icon: 'code-download', component: resolve => { require(['@/views/tables/exportable-table.vue'], resolve); } }
+        ]
+    },
+    {
+        path: '/customer-management',
+        icon: 'settings',
+        title: '客户管理',
+        name: 'customerManagement',
+        component: Main,
+        children: [
+            { path: 'customer', title: '客户管理', name: 'customer-management', icon: 'edit', component: resolve => { require(['@/views/my-components/draggable-list/draggable-list.vue'], resolve); } },
+        ]
+    },
     {
         path: '/system-settings',
         icon: 'settings',
