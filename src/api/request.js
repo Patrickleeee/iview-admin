@@ -69,3 +69,11 @@ export function listOrders (myParams) {
         data: myParams
     });
 }
+
+export function listRiskControlResult () {
+    return fetch({
+        url: '/syh/riskControl',
+        method: 'post',
+        data: {}
+    });
+}

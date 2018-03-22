@@ -1,5 +1,4 @@
 import axios from 'axios';
-// import store from '@/store';
 import Cookies from 'js-cookie';
 
 // const BASE_URL = 'http://139.224.146.23:8088';
@@ -16,15 +15,14 @@ const service = axios.create({
 service.interceptors.request.use(config => {
     // Do something before request is sent
     // 先注释点请求头
-    // const url = config.url;
-    // const authorization = Cookies.get('Authorization');
-    // // 非登录页面，添加请求头
-    // if (url !== LOGIN_URL) {
-    //     config.url = '/rest' + url;
-    //     config.headers.Authorization = authorization;
-    // }
-    // // service.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
-    // console.log('request config:', config);
+    const url = config.url;
+    const authorization = Cookies.get('Authorization');
+    // 非登录页面，添加请求头
+    if (url !== LOGIN_URL) {
+        config.url = '/rest' + url;
+        config.headers.Authorization = authorization;
+    }
+    console.log('request config:', config);
     return config;
 }, error => {
     console.log(error); // for debug
@@ -33,17 +31,16 @@ service.interceptors.request.use(config => {
 
 // respone拦截器
 service.interceptors.response.use(response => {
-    // response.headers['Access-Control-Allow-Origin'] = '*';
     // 登录时，异常处理
     // 先注释点响应处理
-    // if (response.config.url === BASE_URL.concat(LOGIN_URL)) {
-    //     let accessToken = response.data.access_token;
-    //     if (accessToken == null) {
-    //         alert('用户名密码错误');
-    //         response.status = 5000;
-    //         return response;
-    //     }
-    // }
+    if (response.config.url === BASE_URL.concat(LOGIN_URL)) {
+        let accessToken = response.data.access_token;
+        if (accessToken == null) {
+            alert('用户名密码错误');
+            response.status = 5000;
+            return response;
+        }
+    }
     return response;
 },
     /**
